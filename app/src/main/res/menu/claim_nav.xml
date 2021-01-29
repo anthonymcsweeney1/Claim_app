@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    //bottom nav items and icons
+    <item android:title="Details"
+        android:icon="@drawable/detail"
+        android:id="@+id/item_detail"/>
+
+    <item android:title="Image"
+        android:icon="@drawable/image"
+        android:id="@+id/item_image"/>
+
+    <item android:title="Comment"
+        android:icon="@drawable/comment"
+        android:id="@+id/item_comment"/>
+
+</menu>

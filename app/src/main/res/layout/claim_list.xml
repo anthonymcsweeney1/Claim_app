@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:paddingLeft="8dp"
+    android:paddingTop="6dp"
+    android:paddingRight="8dp"
+    android:paddingBottom="6dp">
+
+    <RelativeLayout
+        android:id="@+id/row_container"
+        android:layout_width="match_parent"
+        android:layout_height="147dp"
+        android:background="@color/text_col"
+        android:padding="8dp">
+
+        <TextView
+            android:id="@+id/textCustomer"
+            android:layout_width="157dp"
+            android:layout_height="40dp"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="5dp"
+            android:layout_marginTop="4dp"
+            android:text="@string/text_customer"
+            android:textAllCaps="true"
+            android:textAppearance="@style/Base.TextAppearance.AppCompat.Small"
+            android:textColor="@color/info" />
+
+        <TextView
+            android:id="@+id/textInvoice"
+            android:layout_width="120dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/textAmount"
+            android:layout_marginStart="94dp"
+            android:layout_marginTop="18dp"
+            android:layout_toEndOf="@+id/textCustomer"
+            android:text="@string/text_invoice"
+            android:textAlignment="viewEnd"
+            android:textAppearance="@style/Base.TextAppearance.AppCompat.Small"
+            android:textColor="@color/nav_bar"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/textOffer"
+            android:layout_width="171dp"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/textInvoice"
+            android:layout_marginStart="136dp"
+            android:layout_marginBottom="-43dp"
+            android:layout_toEndOf="@+id/textClaimNum"
+            android:text="@string/text_offer"
+            android:textAlignment="viewEnd"
+            android:textAppearance="@style/Base.TextAppearance.AppCompat.Small"
+            android:textColor="@color/nav_bar" />
+
+        <TextView
+            android:id="@+id/textAmount"
+            android:layout_width="159dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="56dp"
+            android:layout_toEndOf="@+id/textCustomer"
+            android:text="@string/text_amount"
+            android:textAlignment="viewEnd"
+            android:textAppearance="@style/Base.TextAppearance.AppCompat.Small"
+            android:textColor="@color/black"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/textClaimNum"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="5dp"
+            android:layout_marginTop="58dp"
+            android:text="@string/text_claim"
+            android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
+            android:textStyle="bold" />
+
+        <Button
+            android:id="@+id/btnApprove"
+            android:layout_width="109dp"
+            android:layout_height="36dp"
+            android:layout_below="@+id/textClaimNum"
+            android:layout_marginTop="17dp"
+            android:background="@color/info"
+            android:text="@string/approve"
+            android:textColor="@color/white" />
+
+    </RelativeLayout>
+
+</LinearLayout>

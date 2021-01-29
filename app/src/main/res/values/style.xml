@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    // Main Application theme
+    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+
+        <item name="colorPrimary">@color/bar</item>
+        <item name="titleTextColor">@color/second</item>
+
+    </style>
+    // Bottom Nav theme
+    <style name="BottomNavigationTheme" parent="Theme.AppCompat.Light">
+        <item name="colorPrimary">@color/bot_nav_colour</item>
+        <item name="android:textColorSecondary">@color/nav_bar</item>
+    </style>
+
+</resources>
