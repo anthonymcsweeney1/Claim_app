@@ -79,6 +79,7 @@ public class ClaimAdapter extends RecyclerView.Adapter<ClaimAdapter.ClaimViewHol
                 intent.putExtra("BillToAcc", String.valueOf(claim.getBillToAcc()));
                 intent.putExtra("ShipTo", String.valueOf(claim.getShipTo()));
                 intent.putExtra("ShipToAcc", String.valueOf(claim.getShipToAcc()));
+                intent.putExtra("Processor", String.valueOf(claim.getProcessor()));
                 Toast.makeText(mCtx, String.valueOf(claim.getClaimID()), Toast.LENGTH_SHORT).show();
                 mCtx.startActivity(intent);
             }

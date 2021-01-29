@@ -10,7 +10,7 @@ import ie.ucc.bis.is4447.claim_app.R;
 
 public class ClaimPage extends AppCompatActivity {
 
-    TextView tvClaimID, tvClaimNum, tvInvoiceNum, tvAmount, tvCus_Name, tvOffer, tvClaimDate, tvCurrency, tvSettlement, tvCusDate, tvOverage, tvType, tvBillTo, tvBillToAcc, tvShipTo, tvShipToAcc;
+    TextView tvClaimID, tvClaimNum, tvInvoiceNum, tvAmount, tvCus_Name, tvOffer, tvClaimDate, tvCurrency, tvSettlement, tvCusDate, tvOverage, tvType, tvBillTo, tvBillToAcc, tvShipTo, tvShipToAcc, tvFrom;
     String  ClaimID, InvoiceNum, Status, customer_reason, claim_type, offercode, settlement, amount, invoice_date, creation_date, CusID, Cus_Name, BillTo, BillToAcc, ShipTo, Approver, ApproverEmail, OperatingUnit, Currency, ClaimNum, ShipToAcc, Creator, Overage,  notes, Processor, approval_level, lastupdated_by, lastupdate ;
 
 
@@ -37,6 +37,7 @@ public class ClaimPage extends AppCompatActivity {
         tvBillToAcc = findViewById(R.id.tvBillToAcc);
         tvShipTo = findViewById(R.id.tvShipTo);
         tvShipToAcc = findViewById(R.id.tvShipToAcc);
+        tvFrom = findViewById(R.id.tvFrom);
 
 
         GetAndSetIntentData();
@@ -51,7 +52,7 @@ public class ClaimPage extends AppCompatActivity {
                 &&  getIntent().hasExtra("offercode")  &&  getIntent().hasExtra("Cus_Name")
                 &&  getIntent().hasExtra("creation_date")&&  getIntent().hasExtra("Currency") &&  getIntent().hasExtra("amount") &&  getIntent().hasExtra("settlement")
                 &&  getIntent().hasExtra("invoice_date") &&  getIntent().hasExtra("Overage") &&  getIntent().hasExtra("claim_type") &&  getIntent().hasExtra("BillTo")
-                &&  getIntent().hasExtra("BillToAcc") &&  getIntent().hasExtra("ShipTo") &&  getIntent().hasExtra("ShipToAcc")){
+                &&  getIntent().hasExtra("BillToAcc") &&  getIntent().hasExtra("ShipTo") &&  getIntent().hasExtra("ShipToAcc") &&  getIntent().hasExtra("Processor")){
 
             //getting data
             ClaimID = getIntent().getStringExtra("ClaimID");
@@ -71,6 +72,7 @@ public class ClaimPage extends AppCompatActivity {
             BillToAcc = getIntent().getStringExtra("BillToAcc");
             ShipTo = getIntent().getStringExtra("ShipTo");
             ShipToAcc = getIntent().getStringExtra("ShipToAcc");
+            Processor = getIntent().getStringExtra("Processor");
 
 
             //setting data
@@ -89,6 +91,7 @@ public class ClaimPage extends AppCompatActivity {
             tvBillToAcc.setText(BillToAcc);
             tvShipTo.setText(ShipTo);
             tvShipToAcc.setText(ShipToAcc);
+            tvFrom.setText(Processor);
 
         }else{
             Toast.makeText(this, "No data.", Toast.LENGTH_SHORT).show();
