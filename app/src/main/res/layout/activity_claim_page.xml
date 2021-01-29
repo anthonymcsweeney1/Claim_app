@@ -42,26 +42,26 @@ xmlns:app="http://schemas.android.com/apk/res-auto">
                 android:layout_marginStart="30dp"
                 android:layout_marginTop="25dp"
                 android:text="TextView"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView4" />
+                android:textColor="@color/black"
+               />
 
             <TextView
-                android:id="@+id/lb_CusID"
+                android:id="@+id/lb_CusNumber"
                 android:layout_marginStart="30dp"
                 android:layout_marginTop="50dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Claim ID" />
+                android:text="Claim Number" />
 
             <TextView
-                android:id="@+id/tvClaimID"
+                android:id="@+id/tvClaimNum"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="30dp"
                 android:layout_marginTop="70dp"
                 android:text="TextView"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                android:textColor="@color/black"
+                />
 
             <TextView
                 android:id="@+id/lb_Invoice"
@@ -69,7 +69,7 @@ xmlns:app="http://schemas.android.com/apk/res-auto">
                 android:layout_marginTop="95dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Invoice Number*" />
+                android:text="Invoice Number" />
 
             <TextView
                 android:id="@+id/tvInvoiceNum"
@@ -78,8 +78,44 @@ xmlns:app="http://schemas.android.com/apk/res-auto">
                 android:layout_marginStart="30dp"
                 android:layout_marginTop="115dp"
                 android:text="TextView"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView5" />
+                android:textColor="@color/black"
+               />
+
+            <TextView
+                android:id="@+id/lb_Offer"
+                android:layout_marginStart="30dp"
+                android:layout_marginTop="140dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Offer Code" />
+
+            <TextView
+                android:id="@+id/tvOffer"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="30dp"
+                android:layout_marginTop="160dp"
+                android:text="TextView"
+                android:textColor="@color/black"
+               />
+
+            <TextView
+                android:id="@+id/lb_ClaimDate"
+                android:layout_marginStart="30dp"
+                android:layout_marginTop="185dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Claim Date" />
+
+            <TextView
+                android:id="@+id/tvClaimDate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="30dp"
+                android:layout_marginTop="205dp"
+                android:text="TextView"
+                android:textColor="@color/black"
+                 />
 
 
 
@@ -90,7 +126,7 @@ xmlns:app="http://schemas.android.com/apk/res-auto">
 
             android:id="@+id/card_view1"
             android:layout_width="match_parent"
-            android:layout_height="200dp"
+            android:layout_height="250dp"
             android:layout_gravity="center"
             app:cardCornerRadius="5dp"
             android:layout_marginBottom="5dp"
@@ -98,20 +134,108 @@ xmlns:app="http://schemas.android.com/apk/res-auto">
             android:layout_marginRight="5dp">
 
             <TextView
-
-                android:id="@+id/info_text1"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
-
-            <TextView
-                android:id="@+id/textView4"
+                android:id="@+id/lb_Currency"
+                android:layout_marginStart="30dp"
+                android:layout_marginTop="5dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="36dp"
-                android:layout_marginTop="52dp"
+                android:text="Currency" />
+
+            <TextView
+                android:id="@+id/tvCurrency"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="30dp"
+                android:layout_marginTop="25dp"
                 android:text="TextView"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView3" />
+                android:textColor="@color/black"
+               />
+
+            <TextView
+                android:id="@+id/lb_Overage"
+                android:layout_marginStart="30dp"
+                android:layout_marginTop="50dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Overage" />
+
+            <TextView
+                android:id="@+id/tvOverage"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="30dp"
+                android:layout_marginTop="70dp"
+                android:text="TextView"
+                android:textColor="@color/black"
+                />
+            <TextView
+                android:id="@+id/lb_Amount"
+                android:layout_marginStart="30dp"
+                android:layout_marginTop="95dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Total Amount" />
+
+            <TextView
+                android:id="@+id/tvAmount"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="30dp"
+                android:layout_marginTop="115dp"
+                android:text="TextView"
+                android:textColor="@color/black"
+                />
+            <TextView
+                android:id="@+id/lb_Cus_Date"
+                android:layout_marginStart="30dp"
+                android:layout_marginTop="140dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Customer Reference Date" />
+
+            <TextView
+                android:id="@+id/tvCusDate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="30dp"
+                android:layout_marginTop="160dp"
+                android:text="TextView"
+                android:textColor="@color/black"
+                />
+            <TextView
+                android:id="@+id/lb_Settlement"
+                android:layout_marginStart="30dp"
+                android:layout_marginTop="185dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Settlement Method" />
+
+            <TextView
+                android:id="@+id/tvSettlement"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="30dp"
+                android:layout_marginTop="205dp"
+                android:text="TextView"
+                android:textColor="@color/black"
+                />
+            <TextView
+                android:id="@+id/lb_Type"
+                android:layout_marginStart="210dp"
+                android:layout_marginTop="185dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Claim Type" />
+
+            <TextView
+                android:id="@+id/tvType"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="210dp"
+                android:layout_marginTop="205dp"
+                android:text="TextView"
+                android:textColor="@color/black"
+                />
 
         </androidx.cardview.widget.CardView>
         <androidx.cardview.widget.CardView
@@ -126,25 +250,74 @@ xmlns:app="http://schemas.android.com/apk/res-auto">
             android:layout_marginRight="5dp">
 
             <TextView
-                android:id="@+id/textView5"
+                android:id="@+id/lb_BillTo"
+                android:layout_marginStart="30dp"
+                android:layout_marginTop="5dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="48dp"
-                android:layout_marginTop="56dp"
-                android:text="TextView"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView2" />
-
+                android:text="Bill To" />
 
             <TextView
-                android:id="@+id/textView2"
+                android:id="@+id/tvBillTo"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="48dp"
-                android:layout_marginTop="60dp"
+                android:layout_marginStart="30dp"
+                android:layout_marginTop="25dp"
                 android:text="TextView"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView" />
+                android:textColor="@color/black"
+                />
+            <TextView
+                android:id="@+id/lb_BillToAcc"
+                android:layout_marginStart="210dp"
+                android:layout_marginTop="5dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Bill To Account" />
+
+            <TextView
+                android:id="@+id/tvBillToAcc"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="210dp"
+                android:layout_marginTop="25dp"
+                android:text="TextView"
+                android:textColor="@color/black"
+                />
+
+            <TextView
+                android:id="@+id/lb_ShipTo"
+                android:layout_marginStart="30dp"
+                android:layout_marginTop="80dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Ship To" />
+
+            <TextView
+                android:id="@+id/tvShipTo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="30dp"
+                android:layout_marginTop="100dp"
+                android:text="TextView"
+                android:textColor="@color/black"
+                />
+            <TextView
+                android:id="@+id/lb_lb_ShipToAcc"
+                android:layout_marginStart="210dp"
+                android:layout_marginTop="80dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Ship To Account" />
+
+            <TextView
+                android:id="@+id/tvShipToAcc"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="210dp"
+                android:layout_marginTop="100dp"
+                android:text="TextView"
+                android:textColor="@color/black"
+                />
 
         </androidx.cardview.widget.CardView>
 

@@ -65,10 +65,20 @@ public class ClaimAdapter extends RecyclerView.Adapter<ClaimAdapter.ClaimViewHol
                 intent.putExtra("ClaimID", String.valueOf(claim.getClaimID()));
                 intent.putExtra("ClaimNum", String.valueOf(claim.getClaimNum()));
                 intent.putExtra("InvoiceNum", String.valueOf(claim.getInvoiceNum()));
-                intent.putExtra("amount", String.valueOf(claim.getamount()));
                 intent.putExtra("offercode", String.valueOf(claim.getoffercode()));
                 intent.putExtra("Cus_Name", String.valueOf(claim.getCus_Name()));
                 intent.putExtra("Creator", String.valueOf(claim.getCreator()));
+                intent.putExtra("creation_date", String.valueOf(claim.getcreation_date()));
+                intent.putExtra("Currency", String.valueOf(claim.getCurrency()));
+                intent.putExtra("amount", String.valueOf(claim.getamount()));
+                intent.putExtra("invoice_date", String.valueOf(claim.getinvoice_date()));
+                intent.putExtra("settlement", String.valueOf(claim.getsettlement()));
+                intent.putExtra("Overage", String.valueOf(claim.getOverage()));
+                intent.putExtra("claim_type", String.valueOf(claim.getclaim_type()));
+                intent.putExtra("BillTo", String.valueOf(claim.getBillTo()));
+                intent.putExtra("BillToAcc", String.valueOf(claim.getBillToAcc()));
+                intent.putExtra("ShipTo", String.valueOf(claim.getShipTo()));
+                intent.putExtra("ShipToAcc", String.valueOf(claim.getShipToAcc()));
                 Toast.makeText(mCtx, String.valueOf(claim.getClaimID()), Toast.LENGTH_SHORT).show();
                 mCtx.startActivity(intent);
             }
