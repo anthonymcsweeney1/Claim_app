@@ -70,20 +70,11 @@
     <string name="text_invoice">45986</string>
     <string name="text_customer">Amazon</string>
 
-    <string name="group1">Group1</string>
-    <string name="group2">Group2</string>
-    <string name="group3">Group3</string>
-    <string-array name="group1">
-        <item>item1</item>
-    </string-array>
-    <string-array name="group2">
-        <item>item1</item>
-        <item>item2</item>
-    </string-array>
-    <string-array name="group3">
-        <item>item1</item>
-        <item>item2</item>
-        <item>item3</item>
-    </string-array>
+
+    <string name="action_settings">Settings</string>
+    <string name="file_view">File View</string>
+    <string name="file_download">File Download</string>
+    <string name="file_request">Request Access Again</string>
+
 
 </resources>
