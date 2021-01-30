@@ -12,10 +12,9 @@ import android.widget.EditText;
 import android.widget.Toast;
 import java.util.HashMap;
 
-import android.os.Bundle;
-
 import ie.ucc.bis.is4447.claim_app.R;
 import ie.ucc.bis.is4447.claim_app.helper.HttpParse;
+import ie.ucc.bis.is4447.claim_app.helper.SessionManager;
 
 public class UserLoginActivity extends AppCompatActivity {
 
@@ -32,13 +31,17 @@ public class UserLoginActivity extends AppCompatActivity {
 
     private static final String TAG = "MyActivity";
 
+    SessionManager sessionManager;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user_login);
 
-        Email = (EditText)findViewById(R.id.email);
-        Password = (EditText)findViewById(R.id.password);
+        sessionManager = new SessionManager(this);
+
+        Email = (EditText)findViewById(R.id.tvPastComment);
+        Password = (EditText)findViewById(R.id.tvAddComment);
         LogIn = (Button)findViewById(R.id.Login);
 
         LogIn.setOnClickListener(new View.OnClickListener() {
@@ -95,6 +98,8 @@ public class UserLoginActivity extends AppCompatActivity {
                 progressDialog.dismiss();
 
                 if(httpResponseMsg.equalsIgnoreCase("Data Matched")){
+
+                    sessionManager.createSession(email);
 
                     finish();
 

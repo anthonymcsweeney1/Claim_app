@@ -114,7 +114,8 @@ public class PendingClaims extends AppCompatActivity {
                                         product.getString("Processor"),
                                         product.getString("approval_level"),
                                         product.getString("lastupdated_by"),
-                                        product.getString("lastupdate")
+                                        product.getString("lastupdate"),
+                                        product.getInt("request_id")
                                 ));
                             }
 

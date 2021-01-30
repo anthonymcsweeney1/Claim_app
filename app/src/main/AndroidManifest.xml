@@ -13,9 +13,19 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.MaterialComponents.Light.NoActionBar.Bridge">
-        <activity android:name=".view.UserLoginActivity" />
+        <activity android:name=".view.Comment"></activity>
+        <activity android:name=".view.InvoicePage" />
+        <activity android:name=".view.UserLoginActivity" >
+        <intent-filter>
+            <action android:name="android.intent.action.MAIN" />
+
+            <category android:name="android.intent.category.LAUNCHER" />
+        </intent-filter>
+        </activity>
+
         <activity android:name=".view.Approve" />
-        <activity android:name=".view.ClaimPage"
+        <activity
+            android:name=".view.ClaimPage"
             android:label="Claims Page"
             android:parentActivityName=".view.PendingClaims"
             android:theme="@style/AppTheme" />
@@ -25,15 +35,9 @@
             android:parentActivityName=".view.Dashboard"
             android:theme="@style/AppTheme" />
         <activity android:name=".view.Dashboard">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-    </activity>
-        <activity android:name=".view.OnBoarding" />
-        <activity android:name=".view.SplashScreen">
         </activity>
+        <activity android:name=".view.OnBoarding" />
+        <activity android:name=".view.SplashScreen" />
 
         <meta-data
             android:name="preloaded_fonts"

@@ -12,15 +12,21 @@ import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
+import java.util.HashMap;
+
 import ie.ucc.bis.is4447.claim_app.R;
+import ie.ucc.bis.is4447.claim_app.helper.SessionManager;
 
 public class Dashboard extends AppCompatActivity {
 
     private Button btnConn, btnPending, btnPast;
+    private TextView email;
+    SessionManager sessionManager;
 
     private BottomNavigationView bottomnav;
     private static final String TAG = "MyActivity";
@@ -30,12 +36,19 @@ public class Dashboard extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dashboard);
 
+        sessionManager = new SessionManager(this);
+        sessionManager.checkLogin();
 
+        email = findViewById(R.id.tvemail);
 
         btnConn = findViewById(R.id.btnConnection);
         btnPending = findViewById(R.id.btnPending);
         btnPast = findViewById(R.id.btnPast);
 
+        HashMap<String, String> user = sessionManager.getUserDetail();
+        String mEmail = user.get(sessionManager.EMAIL);
+
+        email.setText("Hello "+ mEmail);
 
         // Bottom Navigation
         bottomnav = findViewById(R.id.bottomnav);
@@ -52,8 +65,7 @@ public class Dashboard extends AppCompatActivity {
                         overridePendingTransition(0,0);
                         return true;
                     case R.id.item_logout:
-                        startActivity(new Intent(getApplicationContext(),Approve.class));
-                        overridePendingTransition(0,0);
+                       sessionManager.logout();
                         return true;
                 }
                 return false;

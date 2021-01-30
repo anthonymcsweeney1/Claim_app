@@ -57,7 +57,8 @@
     <string name="currency">€</string>
     <string name="logo">Logo</string>
     <string name="photo">photo</string>
-    <string name="hi">Hi Approver, lets check if you have Claims to approve today</string>
+    <string name="Sess">Hi ....</string>
+    <string name="Check">lets check if you have Claims to approve today</string>
     <string name="date">Date</string>
     <string name="claimicon">Claimicon</string>
     <string name="dateicon">Dateicon</string>

@@ -75,12 +75,28 @@
 
     <TextView
         android:id="@+id/tvHi"
-        android:layout_width="354dp"
-        android:layout_height="77dp"
+        android:layout_width="322dp"
+        android:layout_height="68dp"
         android:fontFamily="@font/allerta"
-        android:text="@string/hi"
+        android:text="@string/Check"
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvemail"
+        tools:inputType="textMultiLine"
+        tools:textColor="@color/second" />
+
+    <TextView
+        android:id="@+id/tvemail"
+        android:layout_width="318dp"
+        android:layout_height="33dp"
+        android:layout_marginTop="12dp"
+        android:fontFamily="@font/allerta"
+        android:text="@string/Sess"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/ivLogo"
         tools:inputType="textMultiLine"

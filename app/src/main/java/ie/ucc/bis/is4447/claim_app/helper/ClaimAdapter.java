@@ -21,6 +21,7 @@ import java.util.List;
 
 import ie.ucc.bis.is4447.claim_app.R;
 import ie.ucc.bis.is4447.claim_app.view.ClaimPage;
+import ie.ucc.bis.is4447.claim_app.view.InvoicePage;
 import ie.ucc.bis.is4447.claim_app.view.PendingClaims;
 
 public class ClaimAdapter extends RecyclerView.Adapter<ClaimAdapter.ClaimViewHolder> {
@@ -80,8 +81,12 @@ public class ClaimAdapter extends RecyclerView.Adapter<ClaimAdapter.ClaimViewHol
                 intent.putExtra("ShipTo", String.valueOf(claim.getShipTo()));
                 intent.putExtra("ShipToAcc", String.valueOf(claim.getShipToAcc()));
                 intent.putExtra("Processor", String.valueOf(claim.getProcessor()));
+                intent.putExtra("request_id", String.valueOf(claim.getrequestid()));
+                intent.putExtra("notes", String.valueOf(claim.getnotes()));
                 Toast.makeText(mCtx, String.valueOf(claim.getClaimID()), Toast.LENGTH_SHORT).show();
                 mCtx.startActivity(intent);
+
+
             }
         });
     }

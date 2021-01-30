@@ -8,10 +8,7 @@
     <item android:title="Image"
         android:icon="@drawable/image"
         android:id="@+id/item_image"/>
-
-    <item android:title="Route"
-        android:icon="@drawable/comment"
-        android:id="@+id/item_route"/>
+    
 
     <item android:title="Comment"
         android:icon="@drawable/comment"
