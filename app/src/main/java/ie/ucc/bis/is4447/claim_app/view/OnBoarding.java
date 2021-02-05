@@ -57,7 +57,8 @@ public class OnBoarding extends AppCompatActivity {
     }
     //Skip Button: go to Login
     public void skip(View view){
-        startActivity(new Intent(getApplicationContext(), UserLoginActivity.class));
+        Log.d(TAG, "Skip Clicked");
+        startActivity(new Intent(getApplicationContext(), Dashboard.class));
         finish();
     }
 

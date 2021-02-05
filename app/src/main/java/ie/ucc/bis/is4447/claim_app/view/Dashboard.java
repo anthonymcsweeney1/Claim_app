@@ -86,7 +86,7 @@ public class Dashboard extends AppCompatActivity {
         btnPast.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(Dashboard.this, Approve.class);
+                Intent intent = new Intent(Dashboard.this, OnBoarding.class);
                 startActivity(intent);
                 Log.d(TAG, "Add new clicked");
             }

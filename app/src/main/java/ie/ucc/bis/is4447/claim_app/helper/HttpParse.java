@@ -10,10 +10,8 @@ import java.net.URL;
 import java.net.URLEncoder;
 import java.util.HashMap;
 import java.util.Map;
+//https://www.simplifiedcoding.net/retrieve-data-mysql-database-android/
 
-/**
- * Created by Juned on 3/3/2017.
- */
 
 public class HttpParse {
 

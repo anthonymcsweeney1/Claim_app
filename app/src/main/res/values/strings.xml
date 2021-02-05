@@ -50,9 +50,7 @@
     <string name="delete">Delete</string>
     <string name="add">Add</string>
 
-    //Camera Page
-    <string name="open_camera">Open Camera</string>
-    <string name="take_photo_of_receipt">Take Photo of Receipt</string>
+
     <string name="play_again">Play Slides</string>
     <string name="currency">€</string>
     <string name="logo">Logo</string>

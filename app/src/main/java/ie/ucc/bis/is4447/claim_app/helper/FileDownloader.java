@@ -1,5 +1,6 @@
 package ie.ucc.bis.is4447.claim_app.helper;
-
+// Code to download file from mysql database: Modified for my project
+// https://stackoverflow.com/questions/55816746/filedownloader-at-the-android-it-is-showing-no-errors-but-the-download-does-not
 import android.util.Log;
 
 import java.io.File;

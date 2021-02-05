@@ -1,9 +1,11 @@
 package ie.ucc.bis.is4447.claim_app.helper;
+// Code modified to display claim data from mysql database in recyclerview
 //https://www.simplifiedcoding.net/retrieve-data-mysql-database-android/
 
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -31,6 +33,8 @@ public class ClaimAdapter extends RecyclerView.Adapter<ClaimAdapter.ClaimViewHol
     private List<Claim> claimList;
     // animation for recycler view
     Animation recycle_anim;
+
+    private static final String TAG = "MyActivity";
 
 
     public ClaimAdapter(Context mCtx, List<Claim> claimList) {
@@ -86,7 +90,7 @@ public class ClaimAdapter extends RecyclerView.Adapter<ClaimAdapter.ClaimViewHol
                 Toast.makeText(mCtx, String.valueOf(claim.getClaimID()), Toast.LENGTH_SHORT).show();
                 mCtx.startActivity(intent);
 
-
+                Log.d(TAG, "Claim " +  String.valueOf(claim.getClaimNum())+ " Clicked");
             }
         });
     }

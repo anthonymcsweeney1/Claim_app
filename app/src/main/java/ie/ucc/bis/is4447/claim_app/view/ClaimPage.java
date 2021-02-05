@@ -37,6 +37,7 @@ public class ClaimPage extends AppCompatActivity {
                     case R.id.item_detail:
                         return true;
                     case R.id.item_image:
+                        //intent to send all variables to next activity
                         startActivity(new Intent(getApplicationContext(),InvoicePage.class));
                         overridePendingTransition(0,0);
                         Intent myIntent = new Intent(ClaimPage.this, InvoicePage.class);
@@ -61,6 +62,7 @@ public class ClaimPage extends AppCompatActivity {
                         startActivity(myIntent);
                         return true;
                     case R.id.item_comment:
+                        //intent to send all variables to next activity
                         startActivity(new Intent(getApplicationContext(),Comment.class));
                         overridePendingTransition(0,0);
                         Intent CommentIntent = new Intent(ClaimPage.this, Comment.class);
@@ -89,6 +91,7 @@ public class ClaimPage extends AppCompatActivity {
             }
         });
 
+        //Assigning variables to TextView
         tvClaimNum = findViewById(R.id.tvClaimNum);
         tvInvoiceNum = findViewById(R.id.tvInvoiceNum);
         tvAmount = findViewById(R.id.tvAmount);

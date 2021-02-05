@@ -1,4 +1,5 @@
 package ie.ucc.bis.is4447.claim_app.helper;
+// Claim class to get and set Claim variables
 
 public class Claim {
     private int ClaimID;

@@ -1,5 +1,7 @@
 package ie.ucc.bis.is4447.claim_app.helper;
 
+//Code taken from my IS4447 CA2 app
+
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;

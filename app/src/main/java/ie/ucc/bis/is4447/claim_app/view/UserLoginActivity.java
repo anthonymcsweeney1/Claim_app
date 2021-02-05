@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -58,7 +59,7 @@ public class UserLoginActivity extends AppCompatActivity {
                 else {
 
                     Toast.makeText(UserLoginActivity.this, "Please fill all form fields.", Toast.LENGTH_LONG).show();
-
+                    Log.d(TAG, "Fields were empty");
                 }
 
             }
@@ -108,6 +109,7 @@ public class UserLoginActivity extends AppCompatActivity {
                     intent.putExtra(UserEmail,email);
 
                     startActivity(intent);
+                    Log.d(TAG, "Login Successful");
 
                 }
                 else{
