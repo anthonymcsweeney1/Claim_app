@@ -62,6 +62,7 @@
     <string name="dateicon">Dateicon</string>
     <string name="customericon">CustomerIcon</string>
     <string name="approve">Approve</string>
+    <string name="reject">Reject</string>
     <string name="text_amount">234.87</string>
     <string name="text_claim">CLA34</string>
     <string name="text_offer">EMEA7582356SIA</string>
@@ -73,6 +74,23 @@
     <string name="file_view">File View</string>
     <string name="file_download">File Download</string>
     <string name="file_request">Request Access Again</string>
-
+    <string name="customer_name">Customer Name</string>
+    <string name="request_id">Request ID</string>
+    <string name="claim_number">Claim Number</string>
+    <string name="invoice_number">Invoice Number</string>
+    <string name="offer_code">Offer Code</string>
+    <string name="claim_date">Claim Date</string>
+    <string name="currencytext">Currency</string>
+    <string name="overage">Overage</string>
+    <string name="total_amount">Total Amount</string>
+    <string name="textview">TextView</string>
+    <string name="customer_reference_date">Customer Reference Date</string>
+    <string name="settlement_method">Settlement Method</string>
+    <string name="claim_type">Claim Type</string>
+    <string name="bill_to">Bill To</string>
+    <string name="bill_to_account">Bill To Account</string>
+    <string name="ship_to">Ship To</string>
+    <string name="ship_to_account">Ship To Account</string>
+    <string name="from">From</string>
 
 </resources>

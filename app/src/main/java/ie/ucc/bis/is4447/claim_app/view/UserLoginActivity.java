@@ -1,5 +1,6 @@
 package ie.ucc.bis.is4447.claim_app.view;
-
+// Code taken from online tutorial modified for my project
+//https://androidjson.com/android-server-login-registration-php-mysql/
 import androidx.appcompat.app.AppCompatActivity;
 import android.app.ProgressDialog;
 import android.content.Intent;

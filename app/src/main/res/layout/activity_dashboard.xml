@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -7,60 +8,99 @@
     android:background="@color/primary"
     tools:context=".view.Dashboard">
 
-    <Button
-        android:id="@+id/btnConnection"
-        android:layout_width="144dp"
-        android:layout_height="52dp"
-        android:background="@color/second"
-        android:text="@string/test_connection"
-        android:textColor="@color/third"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvHi"
-        app:layout_constraintVertical_bias="0.204" />
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_height="match_parent"
+        android:layout_width="match_parent">
 
-    <ImageView
-        android:id="@+id/ivLogo"
-        android:layout_width="367dp"
-        android:layout_height="251dp"
-        android:layout_marginTop="4dp"
-        android:contentDescription="@string/logo"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/splashscreen" />
+        <androidx.cardview.widget.CardView
+            android:id="@+id/card_view"
+            android:layout_width="match_parent"
+            android:layout_height="325dp"
+            android:layout_gravity="center"
+            android:layout_marginLeft="0dp"
+            android:layout_marginTop="0dp"
+            android:layout_marginRight="0dp"
+            android:layout_marginBottom="0dp"
+            app:cardBackgroundColor="@color/home"
+            app:cardCornerRadius="4dp">
+
+            <TextView
+                android:id="@+id/tvHi"
+                android:layout_width="200dp"
+                android:layout_height="45dp"
+                android:layout_marginStart="30dp"
+                android:layout_marginTop="160dp"
+                android:fontFamily="@font/allerta"
+                android:text="@string/Check"
+                android:textSize="14sp"
+                app:layout_constraintEnd_toStartOf="@+id/ivLogo"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tvemail"
+                tools:inputType="textMultiLine"
+                tools:textColor="@color/black" />
+
+            <TextView
+                android:id="@+id/tvemail"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="30dp"
+                android:layout_marginTop="90dp"
+                android:fontFamily="@font/allerta"
+                android:text="@string/Sess"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toStartOf="@+id/ivLogo"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/ivLogo"
+                tools:inputType="textMultiLine"
+                tools:textColor="@color/black" />
 
 
-    <Button
-        android:id="@+id/btnPending"
-        android:layout_width="144dp"
-        android:layout_height="52dp"
-        android:background="@color/second"
-        android:text="@string/view_all"
-        android:textColor="@color/third"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.108"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvHi"
-        app:layout_constraintVertical_bias="0.671" />
+            <ImageView
+                android:id="@+id/ivLogo"
+                android:layout_width="208dp"
+                android:layout_height="206dp"
+                android:layout_marginStart="190dp"
+                android:layout_marginTop="70dp"
+                android:contentDescription="@string/logo"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.885"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/bot" />
 
-    <Button
-        android:id="@+id/btnPast"
-        android:layout_width="144dp"
-        android:layout_height="52dp"
-        android:background="@color/second"
-        android:text="@string/past"
-        android:textColor="@color/third"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.895"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvHi"
-        app:layout_constraintVertical_bias="0.67" />
+        </androidx.cardview.widget.CardView>
+
+        <Button
+            android:id="@+id/btnConnection"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            android:background="@color/second"
+            android:text="@string/test_connection"
+            android:textColor="@color/third" />
+
+        <Button
+            android:id="@+id/btnPending"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/second"
+            android:text="@string/view_all"
+            android:textColor="@color/third" />
+
+        <Button
+            android:id="@+id/btnPast"
+            android:layout_width="match_parent"
+
+            android:layout_height="wrap_content"
+            android:background="@color/second"
+            android:text="@string/past"
+            android:textColor="@color/third" />
+
+
+    </LinearLayout>
+
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottomnav"
@@ -72,34 +112,5 @@
         app:layout_constraintStart_toStartOf="parent"
         app:menu="@menu/bottom_navigation"
         android:theme="@style/BottomNavigationTheme" />
-
-    <TextView
-        android:id="@+id/tvHi"
-        android:layout_width="322dp"
-        android:layout_height="68dp"
-        android:fontFamily="@font/allerta"
-        android:text="@string/Check"
-        android:textSize="18sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.495"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvemail"
-        tools:inputType="textMultiLine"
-        tools:textColor="@color/second" />
-
-    <TextView
-        android:id="@+id/tvemail"
-        android:layout_width="318dp"
-        android:layout_height="33dp"
-        android:layout_marginTop="12dp"
-        android:fontFamily="@font/allerta"
-        android:text="@string/Sess"
-        android:textSize="18sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ivLogo"
-        tools:inputType="textMultiLine"
-        tools:textColor="@color/second" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
