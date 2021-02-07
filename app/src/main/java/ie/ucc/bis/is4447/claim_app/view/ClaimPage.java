@@ -1,16 +1,30 @@
 package ie.ucc.bis.is4447.claim_app.view;
+// Modified code to approve/reject claims
+//https://www.youtube.com/watch?v=pLM_Fz8Plbg
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.android.volley.AuthFailureError;
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+
+import java.util.HashMap;
+import java.util.Map;
 
 import ie.ucc.bis.is4447.claim_app.R;
 
@@ -18,7 +32,8 @@ public class ClaimPage extends AppCompatActivity {
 
     TextView tvClaimID, tvClaimNum, tvInvoiceNum, tvAmount, tvCus_Name, tvOffer, tvClaimDate, tvCurrency, tvSettlement, tvCusDate, tvOverage, tvType, tvBillTo, tvBillToAcc, tvShipTo, tvShipToAcc, tvFrom, tvRequestID;
     String  ClaimID, InvoiceNum, Status, customer_reason, claim_type, offercode, settlement, amount, invoice_date, creation_date, CusID, Cus_Name, BillTo, BillToAcc, ShipTo, Approver, ApproverEmail, OperatingUnit, Currency, ClaimNum, ShipToAcc, Creator, Overage,  notes, Processor, approval_level, lastupdated_by, lastupdate, request_id ;
-    Button Approve, Reject;
+    Button btnApprove, btnReject;
+    ProgressDialog progressDialog;
 
     private BottomNavigationView bottomnav;
     private static final String TAG = "MyActivity";
@@ -27,6 +42,9 @@ public class ClaimPage extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_claim_page);
+
+        btnApprove = findViewById(R.id.btnApprove);
+        btnReject = findViewById(R.id.btnReject);
 
 
 
@@ -46,6 +64,7 @@ public class ClaimPage extends AppCompatActivity {
                         overridePendingTransition(0,0);
                         Intent myIntent = new Intent(ClaimPage.this, InvoicePage.class);
                         myIntent.putExtra("notes", notes);
+                        myIntent.putExtra("ClaimID", ClaimID);
                         myIntent.putExtra("ClaimNum", ClaimNum);
                         myIntent.putExtra("InvoiceNum", InvoiceNum);
                         myIntent.putExtra("amount", amount);
@@ -71,6 +90,7 @@ public class ClaimPage extends AppCompatActivity {
                         overridePendingTransition(0,0);
                         Intent CommentIntent = new Intent(ClaimPage.this, Comment.class);
                         CommentIntent.putExtra("notes", notes);
+                        CommentIntent.putExtra("ClaimID", ClaimID);
                         CommentIntent.putExtra("ClaimNum", ClaimNum);
                         CommentIntent.putExtra("InvoiceNum", InvoiceNum);
                         CommentIntent.putExtra("amount", amount);
@@ -96,6 +116,7 @@ public class ClaimPage extends AppCompatActivity {
         });
 
         //Assigning variables to TextView
+        tvClaimID = findViewById(R.id.tvClaimID);
         tvClaimNum = findViewById(R.id.tvClaimNum);
         tvInvoiceNum = findViewById(R.id.tvInvoiceNum);
         tvAmount = findViewById(R.id.tvAmount);
@@ -116,6 +137,86 @@ public class ClaimPage extends AppCompatActivity {
 
 
         GetAndSetIntentData();
+
+
+
+        btnApprove.setOnClickListener(new View.OnClickListener() {
+
+            String ClaimID = tvClaimID.getText().toString();
+            String ClaimNum = tvClaimNum.getText().toString();
+
+            @Override
+            public void onClick(View v) {
+                progressDialog = ProgressDialog.show(ClaimPage.this,"Approving...",null,true,true);
+
+                StringRequest request = new StringRequest(Request.Method.POST, "https://vendorcentral.000webhostapp.com/ApiApprove.php", new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
+                        Toast.makeText(ClaimPage.this, response, Toast.LENGTH_SHORT).show();
+                    }
+                }, new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        Toast.makeText(ClaimPage.this, error.getMessage(), Toast.LENGTH_SHORT).show();
+                    }
+                }){
+
+                    @Override
+                    protected Map<String, String> getParams() throws AuthFailureError {
+
+                        Map<String, String> params = new HashMap<>();
+
+                        params.put("ClaimID", ClaimID);
+                        params.put("ClaimNum", ClaimNum);
+
+                        return params;
+                    }
+                };
+
+                RequestQueue requestQueue = Volley.newRequestQueue(ClaimPage.this);
+                requestQueue.add(request);
+            }
+        });
+
+
+        btnReject.setOnClickListener(new View.OnClickListener() {
+
+            String ClaimID = tvClaimID.getText().toString();
+            String ClaimNum = tvClaimNum.getText().toString();
+
+            @Override
+            public void onClick(View v) {
+                progressDialog = ProgressDialog.show(ClaimPage.this,"Rejecting...",null,true,true);
+
+                StringRequest request = new StringRequest(Request.Method.POST, "https://vendorcentral.000webhostapp.com/ApiReject.php", new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
+                        Toast.makeText(ClaimPage.this, response, Toast.LENGTH_SHORT).show();
+                    }
+                }, new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        Toast.makeText(ClaimPage.this, error.getMessage(), Toast.LENGTH_SHORT).show();
+                    }
+                }){
+
+                    @Override
+                    protected Map<String, String> getParams() throws AuthFailureError {
+
+                        Map<String, String> params = new HashMap<>();
+
+                        params.put("ClaimID", ClaimID);
+                        params.put("ClaimNum", ClaimNum);
+
+                        return params;
+                    }
+                };
+
+                RequestQueue requestQueue = Volley.newRequestQueue(ClaimPage.this);
+                requestQueue.add(request);
+            }
+        });
+
     }
 
 
@@ -148,6 +249,7 @@ public class ClaimPage extends AppCompatActivity {
 
 
             //setting data
+        tvClaimID.setText(ClaimID);
             tvClaimNum.setText(ClaimNum);
             tvInvoiceNum.setText(InvoiceNum);
             tvAmount.setText(amount);

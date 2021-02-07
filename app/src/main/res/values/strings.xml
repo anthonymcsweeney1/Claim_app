@@ -37,7 +37,7 @@
     <string name="past">Past Approvals</string>
 
     // Expense page
-    <string name="msg_no_results">No expenses found</string>
+    <string name="msg_no_results">No Claims to Approve</string>
     <string name="lbl_new_expense_title">New Expense</string>
     <string name="hint_enter_note">Enter your expense</string>
     <string name="lbl_edit_expense_title">Edit expense</string>

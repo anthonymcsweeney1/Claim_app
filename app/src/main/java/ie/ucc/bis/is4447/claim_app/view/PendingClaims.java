@@ -5,6 +5,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
+import android.widget.TextView;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -36,6 +37,8 @@ public class PendingClaims extends AppCompatActivity {
     //a list to store all the products
     List<Claim> claimList;
 
+    private TextView no_claims;
+
 
     //the recyclerview
     RecyclerView recyclerView;
@@ -48,6 +51,7 @@ public class PendingClaims extends AppCompatActivity {
         setContentView(R.layout.activity_pending_claims);
 
 
+        no_claims = findViewById(R.id.no_claims);
         //getting the recyclerview from xml
         recyclerView = findViewById(R.id.recylcerView);
         recyclerView.setHasFixedSize(true);
@@ -82,10 +86,12 @@ public class PendingClaims extends AppCompatActivity {
                             //traversing through all the object
                             for (int i = 0; i < array.length(); i++) {
 
-                                //getting product object from json array
+
+
+                                //getting claim object from json array
                                 JSONObject product = array.getJSONObject(i);
 
-                                //adding the product to product list
+                                //adding the claim to claim list
                                 claimList.add(new Claim(
                                         product.getInt("ClaimID"),
                                         product.getString("InvoiceNum"),
@@ -117,11 +123,17 @@ public class PendingClaims extends AppCompatActivity {
                                         product.getString("lastupdate"),
                                         product.getInt("request_id")
                                 ));
+
+
+
                             }
 
                             //creating adapter object and setting it to recyclerview
                             ClaimAdapter adapter = new ClaimAdapter(PendingClaims.this, claimList);
                             recyclerView.setAdapter(adapter);
+
+                            // if i = 0
+
                         } catch (JSONException e) {
                             e.printStackTrace();
                         }
