@@ -173,6 +173,7 @@ public class ClaimPage extends AppCompatActivity {
                     }
                 };
 
+                progressDialog.dismiss();
                 RequestQueue requestQueue = Volley.newRequestQueue(ClaimPage.this);
                 requestQueue.add(request);
             }
@@ -211,9 +212,11 @@ public class ClaimPage extends AppCompatActivity {
                         return params;
                     }
                 };
-
+                progressDialog.dismiss();
                 RequestQueue requestQueue = Volley.newRequestQueue(ClaimPage.this);
                 requestQueue.add(request);
+
+
             }
         });
 

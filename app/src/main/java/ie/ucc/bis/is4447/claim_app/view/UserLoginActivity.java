@@ -46,6 +46,8 @@ public class UserLoginActivity extends AppCompatActivity {
         Password = (EditText)findViewById(R.id.tvAddComment);
         LogIn = (Button)findViewById(R.id.Login);
 
+
+
         LogIn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

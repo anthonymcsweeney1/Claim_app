@@ -5,6 +5,8 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
+import android.util.Log;
+import android.view.View;
 import android.widget.TextView;
 
 import org.json.JSONArray;
@@ -26,19 +28,20 @@ import com.android.volley.toolbox.Volley;
 import ie.ucc.bis.is4447.claim_app.R;
 import ie.ucc.bis.is4447.claim_app.helper.Claim;
 import ie.ucc.bis.is4447.claim_app.helper.ClaimAdapter;
+import ie.ucc.bis.is4447.claim_app.helper.InBackgroundClass;
 
 public class PendingClaims extends AppCompatActivity {
 
     //this is the JSON Data URL
     //make sure you are using the correct ip else it will not work
-    private static final String URL_PRODUCTS = "https://vendorcentral.000webhostapp.com/ApiClaim.php";
+    private static final String URL_CLAIMS = "https://vendorcentral.000webhostapp.com/ApiClaim.php";
 
     private ClaimAdapter adapter;
     //a list to store all the products
     List<Claim> claimList;
 
     private TextView no_claims;
-
+    private static final String TAG = "MyActivity";
 
     //the recyclerview
     RecyclerView recyclerView;
@@ -60,6 +63,9 @@ public class PendingClaims extends AppCompatActivity {
         //initializing the claimList
         claimList = new ArrayList<>();
 
+        InBackgroundClass myClass = new InBackgroundClass(PendingClaims.this);
+        myClass.execute(URL_CLAIMS);
+
         //this method will fetch and parse json
         //to display it in recyclerview
         loadProducts();
@@ -75,7 +81,7 @@ public class PendingClaims extends AppCompatActivity {
          * Then we have a Response Listener and a Error Listener
          * In response listener we will get the JSON response as a String
          * */
-        StringRequest stringRequest = new StringRequest(Request.Method.GET, URL_PRODUCTS,
+        StringRequest stringRequest = new StringRequest(Request.Method.GET, URL_CLAIMS,
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
@@ -132,10 +138,11 @@ public class PendingClaims extends AppCompatActivity {
                             ClaimAdapter adapter = new ClaimAdapter(PendingClaims.this, claimList);
                             recyclerView.setAdapter(adapter);
 
-                            // if i = 0
+
 
                         } catch (JSONException e) {
                             e.printStackTrace();
+
                         }
                     }
                 },
