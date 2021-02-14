@@ -57,9 +57,9 @@ public class ClaimAdapter extends RecyclerView.Adapter<ClaimAdapter.ClaimViewHol
         Claim claim = claimList.get(position);
 
         holder.textClaim.setText(claim.getClaimNum());
-        holder.textInvoice.setText(claim.getInvoiceNum());
-        holder.textAmount.setText(String.valueOf(claim.getamount()));
-        holder.textOffer.setText(String.valueOf(claim.getoffercode()));
+        holder.textInvoice.setText("Invoice No: " + claim.getInvoiceNum());
+        holder.textAmount.setText(String.valueOf("€" + claim.getamount()));
+        holder.textOffer.setText(String.valueOf("Offer Code: " +claim.getoffercode()));
         holder.textCustomer.setText(String.valueOf(claim.getCus_Name()));
 
         holder.row_container.setOnClickListener(new View.OnClickListener() {
@@ -111,7 +111,7 @@ public class ClaimAdapter extends RecyclerView.Adapter<ClaimAdapter.ClaimViewHol
 
             textCustomer = itemView.findViewById(R.id.textCustomer);
             textAmount = itemView.findViewById(R.id.textAmount);
-            textInvoice = itemView.findViewById(R.id.textInvoice);
+           textInvoice = itemView.findViewById(R.id.textInvoice);
             textClaim = itemView.findViewById(R.id.textClaimNum);
             textOffer = itemView.findViewById(R.id.textOffer);
 

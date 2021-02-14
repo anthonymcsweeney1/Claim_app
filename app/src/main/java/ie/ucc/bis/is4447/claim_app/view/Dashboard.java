@@ -1,8 +1,12 @@
 package ie.ucc.bis.is4447.claim_app.view;
+//code use for page display
+//https://www.youtube.com/watch?v=d6CfaWW7G5Q
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.cardview.widget.CardView;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
 import android.net.ConnectivityManager;
@@ -12,6 +16,7 @@ import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -22,14 +27,16 @@ import java.util.HashMap;
 import ie.ucc.bis.is4447.claim_app.R;
 import ie.ucc.bis.is4447.claim_app.helper.SessionManager;
 
-public class Dashboard extends AppCompatActivity {
+public class Dashboard extends AppCompatActivity implements View.OnClickListener{
 
-    private Button btnConn, btnPending, btnPast;
+    private CardView cardPending, cardApproved, cardRejected, cardCharts;
+    private ImageView imPending, imApproved;
     private TextView email;
     SessionManager sessionManager;
 
     private BottomNavigationView bottomnav;
     private static final String TAG = "MyActivity";
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,14 +48,23 @@ public class Dashboard extends AppCompatActivity {
 
         email = findViewById(R.id.tvemail);
 
-        btnConn = findViewById(R.id.btnConnection);
-        btnPending = findViewById(R.id.btnPending);
-        btnPast = findViewById(R.id.btnPast);
+
+        //defining Cards
+        cardPending = findViewById(R.id.cardPending);
+        cardApproved =  findViewById(R.id.cardApproved);
+        cardRejected =  findViewById(R.id.cardRejected);
+        cardCharts =  findViewById(R.id.cardCharts);
+
+        //Add Click listener
+        cardPending.setOnClickListener(this);
+        cardApproved.setOnClickListener(this);
+        cardRejected.setOnClickListener(this);
+        cardCharts.setOnClickListener(this);
 
         HashMap<String, String> user = sessionManager.getUserDetail();
         String mEmail = user.get(sessionManager.EMAIL);
 
-        email.setText("Hello "+ mEmail);
+        email.setText(mEmail);
 
         // Bottom Navigation
         bottomnav = findViewById(R.id.bottomnav);
@@ -73,30 +89,52 @@ public class Dashboard extends AppCompatActivity {
         });
 
         // Navigate to recycler view page
-        btnPending.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(Dashboard.this, PendingClaims.class);
-                startActivity(intent);
-                Log.i(TAG, "View Pending Claims Clicked");
-
-            }
-        });
+//        btnPending.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                Intent intent = new Intent(Dashboard.this, PendingClaims.class);
+//                startActivity(intent);
+//                Log.i(TAG, "View Pending Claims Clicked");
+//
+//            }
+//        });
         // Navigate to input page
-        btnPast.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(Dashboard.this, OnBoarding.class);
-                startActivity(intent);
-                Log.d(TAG, "Add new clicked");
-            }
-        });
+//        btnPast.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                Intent intent = new Intent(Dashboard.this, OnBoarding.class);
+//                startActivity(intent);
+//                Log.d(TAG, "Add new clicked");
+//            }
+//        });
 
         //Check connection to internet
-        btnConn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                ConnectivityManager manager = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
+//        btnConn.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                ConnectivityManager manager = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
+//                NetworkInfo networkInfo = manager.getActiveNetworkInfo();
+//
+//                if (networkInfo != null && networkInfo.isConnected()) {
+//                    Toast.makeText(Dashboard.this, "Devise is connected to the internet", Toast.LENGTH_LONG).show();
+//                    Log.d(TAG, "Devise is connected to the internet");
+//                } else {
+//                    Toast.makeText(Dashboard.this, "Devise is not connected to the internet", Toast.LENGTH_LONG).show();
+//                    Log.d(TAG, "Devise is not connected to the internet");
+//                }
+//            }
+//        });
+    }
+
+    @Override
+    public void onClick(View v) {
+        Intent i;
+
+        switch (v.getId()) {
+        case R.id.cardPending : i = new Intent (this, PendingClaims.class); startActivity(i); break;
+        case R.id.cardApproved : i = new Intent (this, OnBoarding.class); startActivity(i); break;
+            case R.id.cardRejected : i = new Intent (this, OnBoarding.class); startActivity(i); break;
+            case R.id.cardCharts :     ConnectivityManager manager = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
                 NetworkInfo networkInfo = manager.getActiveNetworkInfo();
 
                 if (networkInfo != null && networkInfo.isConnected()) {
@@ -105,8 +143,8 @@ public class Dashboard extends AppCompatActivity {
                 } else {
                     Toast.makeText(Dashboard.this, "Devise is not connected to the internet", Toast.LENGTH_LONG).show();
                     Log.d(TAG, "Devise is not connected to the internet");
-                }
-            }
-        });
+                } break;
+            default: break;
+    }
     }
 }

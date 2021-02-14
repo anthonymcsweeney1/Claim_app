@@ -386,6 +386,19 @@ xmlns:app="http://schemas.android.com/apk/res-auto">
         </Button>
 
         <Button
+            android:id="@+id/btnNextApprove"
+            android:layout_width="160dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="210dp"
+            android:layout_marginTop="20dp"
+            android:background="@color/info"
+            android:text="@string/nextapprove"
+            android:textColor="@color/white"
+            android:visibility="invisible">
+
+        </Button>
+
+        <Button
             android:id="@+id/btnReject"
             android:layout_width="160dp"
             android:layout_height="40dp"

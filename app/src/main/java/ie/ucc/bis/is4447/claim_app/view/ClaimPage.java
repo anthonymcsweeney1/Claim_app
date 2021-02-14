@@ -31,8 +31,9 @@ import ie.ucc.bis.is4447.claim_app.R;
 public class ClaimPage extends AppCompatActivity {
 
     TextView tvClaimID, tvClaimNum, tvInvoiceNum, tvAmount, tvCus_Name, tvOffer, tvClaimDate, tvCurrency, tvSettlement, tvCusDate, tvOverage, tvType, tvBillTo, tvBillToAcc, tvShipTo, tvShipToAcc, tvFrom, tvRequestID;
-    String  ClaimID, InvoiceNum, Status, customer_reason, claim_type, offercode, settlement, amount, invoice_date, creation_date, CusID, Cus_Name, BillTo, BillToAcc, ShipTo, Approver, ApproverEmail, OperatingUnit, Currency, ClaimNum, ShipToAcc, Creator, Overage,  notes, Processor, approval_level, lastupdated_by, lastupdate, request_id ;
-    Button btnApprove, btnReject;
+    String  ClaimID, InvoiceNum, Status, customer_reason, claim_type, offercode, settlement, amount, invoice_date, creation_date, CusID, Cus_Name, BillTo, BillToAcc, ShipTo, Approver, ApproverEmail, Overage, OperatingUnit, Currency, ClaimNum, ShipToAcc, Creator,  notes, Processor, approval_level, lastupdated_by, lastupdate, request_id ;
+    int value;
+    Button btnApprove, btnReject, btnNextApprove;
     ProgressDialog progressDialog;
 
     private BottomNavigationView bottomnav;
@@ -45,6 +46,7 @@ public class ClaimPage extends AppCompatActivity {
 
         btnApprove = findViewById(R.id.btnApprove);
         btnReject = findViewById(R.id.btnReject);
+        btnNextApprove = findViewById(R.id.btnNextApprove);
 
 
 
@@ -137,6 +139,21 @@ public class ClaimPage extends AppCompatActivity {
 
 
         GetAndSetIntentData();
+
+
+        // Check Overage Value and condition for approval buttons
+
+        String str = Overage;
+        Double d = Double.valueOf(str); // returns Double object
+        System.out.println(d);
+
+    if (d > 500){
+        btnApprove.setVisibility(View.INVISIBLE);
+        btnNextApprove.setVisibility(View.VISIBLE);
+    }else{
+        btnApprove.setVisibility(View.VISIBLE);
+        btnNextApprove.setVisibility(View.INVISIBLE);
+    }
 
 
 

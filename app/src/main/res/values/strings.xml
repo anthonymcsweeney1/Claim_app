@@ -55,7 +55,7 @@
     <string name="currency">€</string>
     <string name="logo">Logo</string>
     <string name="photo">photo</string>
-    <string name="Sess">Hi ....</string>
+    <string name="Sess">Hello</string>
     <string name="Check">lets check if you have Claims to approve today</string>
     <string name="date">Date</string>
     <string name="claimicon">Claimicon</string>
@@ -92,5 +92,7 @@
     <string name="ship_to">Ship To</string>
     <string name="ship_to_account">Ship To Account</string>
     <string name="from">From</string>
+    <string name="nextapprove">Approve to next Level</string>
+
 
 </resources>

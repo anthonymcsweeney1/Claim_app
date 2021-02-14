@@ -22,6 +22,13 @@
     <color name="success">#2aa838</color>
     <color name="info">#1183ca</color>
 
+    //Dashboard page
+    <color name="deeppurple">#7c4dff</color>
+    <color name="yello">#ffb300</color>
+    <color name="green">#00bfa5</color>
+    <color name="colorAccent">#FF4081</color>
+    <color name="lightgrey">#ededed</color>
+
 
 
 </resources>
