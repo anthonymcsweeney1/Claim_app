@@ -5,10 +5,15 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.android.volley.Request;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -17,26 +22,18 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 import java.util.List;
 
-
-import com.android.volley.Response;
-
-
-import com.android.volley.Request;
-import com.android.volley.VolleyError;
-import com.android.volley.toolbox.StringRequest;
-import com.android.volley.toolbox.Volley;
-
 import ie.ucc.bis.is4447.claim_app.R;
+import ie.ucc.bis.is4447.claim_app.helper.ActionedAdapter;
 import ie.ucc.bis.is4447.claim_app.helper.Claim;
-import ie.ucc.bis.is4447.claim_app.helper.ClaimAdapter;
 import ie.ucc.bis.is4447.claim_app.helper.InBackgroundClass;
+import ie.ucc.bis.is4447.claim_app.helper.RejectedAdapter;
 
-public class PendingClaims extends AppCompatActivity {
+public class Rejected extends AppCompatActivity {
 
     //JSON Data URL
-    private static final String URL_CLAIMS = "https://vendorcentral.000webhostapp.com/ApiClaim.php";
+    private static final String URL_CLAIMS = "https://vendorcentral.000webhostapp.com/ApiClaimApproved.php";
 
-    private ClaimAdapter adapter;
+    private RejectedAdapter adapter;
     //a list to store all the products
     List<Claim> claimList;
 
@@ -47,12 +44,10 @@ public class PendingClaims extends AppCompatActivity {
     RecyclerView recyclerView;
 
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_pending_claims);
-
+        setContentView(R.layout.activity_rejected);
 
         no_claims = findViewById(R.id.no_claims);
         //getting the recyclerview from xml
@@ -63,7 +58,7 @@ public class PendingClaims extends AppCompatActivity {
         //initializing the claimList
         claimList = new ArrayList<>();
 
-        InBackgroundClass myClass = new InBackgroundClass(PendingClaims.this);
+        InBackgroundClass myClass = new InBackgroundClass(Rejected.this);
         myClass.execute(URL_CLAIMS);
 
         //this method will fetch and parse json
@@ -88,7 +83,7 @@ public class PendingClaims extends AppCompatActivity {
                         if (response.contains("Claim")) {
 
                         } else {
-                            Toast.makeText(PendingClaims.this, "No Claims to Approve.", Toast.LENGTH_LONG).show();
+                            Toast.makeText(Rejected.this, "No Claims to Approve.", Toast.LENGTH_LONG).show();
                             no_claims.setVisibility(View.VISIBLE);
                         }
                         try {
@@ -141,7 +136,7 @@ public class PendingClaims extends AppCompatActivity {
                             }
 
                             //creating adapter object and setting it to recyclerview
-                            ClaimAdapter adapter = new ClaimAdapter(PendingClaims.this, claimList);
+                            RejectedAdapter adapter = new RejectedAdapter(Rejected.this, claimList);
                             recyclerView.setAdapter(adapter);
 
 

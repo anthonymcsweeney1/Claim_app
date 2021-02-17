@@ -42,8 +42,8 @@ public class UserLoginActivity extends AppCompatActivity {
 
         sessionManager = new SessionManager(this);
 
-        Email = (EditText)findViewById(R.id.tvPastComment);
-        Password = (EditText)findViewById(R.id.tvAddComment);
+        Email = (EditText)findViewById(R.id.tvUser);
+        Password = (EditText)findViewById(R.id.tvPass);
         LogIn = (Button)findViewById(R.id.Login);
 
 

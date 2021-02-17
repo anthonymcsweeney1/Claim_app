@@ -77,7 +77,7 @@ public class Dashboard extends AppCompatActivity implements View.OnClickListener
                     case R.id.item_home:
                         return true;
                     case R.id.item_pending:
-                        startActivity(new Intent(getApplicationContext(),PendingClaims.class));
+                        startActivity(new Intent(getApplicationContext(),Approve.class));
                         overridePendingTransition(0,0);
                         return true;
                     case R.id.item_logout:
@@ -132,8 +132,8 @@ public class Dashboard extends AppCompatActivity implements View.OnClickListener
 
         switch (v.getId()) {
         case R.id.cardPending : i = new Intent (this, PendingClaims.class); startActivity(i); break;
-        case R.id.cardApproved : i = new Intent (this, OnBoarding.class); startActivity(i); break;
-            case R.id.cardRejected : i = new Intent (this, OnBoarding.class); startActivity(i); break;
+        case R.id.cardApproved : i = new Intent (this, Approve.class); startActivity(i); break;
+            case R.id.cardRejected : i = new Intent (this, Rejected.class); startActivity(i); break;
             case R.id.cardCharts :     ConnectivityManager manager = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
                 NetworkInfo networkInfo = manager.getActiveNetworkInfo();
 

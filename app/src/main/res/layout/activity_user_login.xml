@@ -47,7 +47,7 @@
                 app:startIconTint="@color/second">
 
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/tvPastComment"
+                    android:id="@+id/tvUser"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:fontFamily="@font/allerta"
@@ -70,7 +70,7 @@
                 app:startIconTint="@color/second">
 
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/tvAddComment"
+                    android:id="@+id/tvPass"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:fontFamily="@font/allerta"
