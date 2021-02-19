@@ -93,6 +93,14 @@
     <string name="ship_to_account">Ship To Account</string>
     <string name="from">From</string>
     <string name="nextapprove">Approve to next Level</string>
+    <string name="view_claims_that_are_pending_your_approval">View Claims that are pending your approval</string>
+    <string name="pending_claims">Pending Claims</string>
+    <string name="approved_claims">Approved Claims</string>
+    <string name="rejected_claims">Rejected Claims</string>
+    <string name="charts">Charts</string>
+    <string name="check_your_bank_activities">Check your bank activities</string>
+    <string name="see_the_claims_you_approved">See the Claims you Approved</string>
+
 
 
 </resources>

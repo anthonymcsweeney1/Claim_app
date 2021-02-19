@@ -118,7 +118,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
-                    android:text="Pending Claims"
+                    android:text="@string/pending_claims"
                     android:textStyle="bold" />
 
                 <View
@@ -132,7 +132,7 @@
                     android:layout_height="wrap_content"
                     android:gravity="center"
                     android:padding="5dp"
-                    android:text="Check your bank activities"
+                    android:text="@string/view_claims_that_are_pending_your_approval"
                     android:textColor="@android:color/darker_gray" />
 
             </LinearLayout>
@@ -164,7 +164,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
-                    android:text="Approved Claims"
+                    android:text="@string/approved_claims"
                     android:textStyle="bold" />
 
                 <View
@@ -178,7 +178,7 @@
                     android:layout_height="wrap_content"
                     android:gravity="center"
                     android:padding="5dp"
-                    android:text="Check your bank activities"
+                    android:text="@string/see_the_claims_you_approved"
                     android:textColor="@android:color/darker_gray" />
 
             </LinearLayout>
@@ -219,7 +219,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
-                    android:text="Rejected Claims"
+                    android:text="@string/rejected_claims"
                     android:textStyle="bold" />
 
                 <View
@@ -233,7 +233,7 @@
                     android:layout_height="wrap_content"
                     android:gravity="center"
                     android:padding="5dp"
-                    android:text="Check your bank activities"
+                    android:text="@string/see_the_claims_you_approved"
                     android:textColor="@android:color/darker_gray" />
 
             </LinearLayout>
@@ -265,7 +265,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
-                    android:text="Charts"
+                    android:text="@string/charts"
                     android:textStyle="bold" />
 
                 <View
@@ -279,7 +279,7 @@
                     android:layout_height="wrap_content"
                     android:gravity="center"
                     android:padding="5dp"
-                    android:text="Check your bank activities"
+                    android:text="@string/check_your_bank_activities"
                     android:textColor="@android:color/darker_gray" />
 
             </LinearLayout>

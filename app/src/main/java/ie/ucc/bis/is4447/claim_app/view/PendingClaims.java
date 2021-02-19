@@ -3,7 +3,9 @@ package ie.ucc.bis.is4447.claim_app.view;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -29,6 +31,7 @@ import com.android.volley.toolbox.Volley;
 import ie.ucc.bis.is4447.claim_app.R;
 import ie.ucc.bis.is4447.claim_app.helper.Claim;
 import ie.ucc.bis.is4447.claim_app.helper.ClaimAdapter;
+import ie.ucc.bis.is4447.claim_app.helper.Connection;
 import ie.ucc.bis.is4447.claim_app.helper.InBackgroundClass;
 
 public class PendingClaims extends AppCompatActivity {
@@ -46,12 +49,13 @@ public class PendingClaims extends AppCompatActivity {
     //the recyclerview
     RecyclerView recyclerView;
 
-
+    SwipeRefreshLayout swipeRefreshLayout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pending_claims);
+
 
 
         no_claims = findViewById(R.id.no_claims);
@@ -70,6 +74,27 @@ public class PendingClaims extends AppCompatActivity {
         //to display it in recyclerview
         loadProducts();
 
+        swipeRefreshLayout = findViewById(R.id.swipeRefreshLayout);
+        swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+
+                ClaimAdapter adapter = new ClaimAdapter(PendingClaims.this, claimList);
+                recyclerView.setAdapter(adapter);
+                swipeRefreshLayout.setRefreshing(false);
+
+                no_claims = findViewById(R.id.no_claims);
+
+
+                //initializing the claimList
+                claimList = new ArrayList<>();
+
+                InBackgroundClass myClass = new InBackgroundClass(PendingClaims.this);
+                myClass.execute(URL_CLAIMS);
+
+                loadProducts();
+            }
+        });
     }
 
     private void loadProducts() {

@@ -16,7 +16,12 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.MaterialComponents.Light.NoActionBar.Bridge">
-        <activity android:name=".view.Rejected"></activity>
+        <activity android:name=".helper.Connection"></activity>
+        <activity
+            android:name=".view.Rejected"
+            android:label="My Rejected Claims"
+            android:parentActivityName=".view.Dashboard"
+            android:theme="@style/AppTheme" />
 
         <provider
             android:name=".helper.GenericFileProvider"
@@ -31,10 +36,14 @@
         <activity android:name=".view.Comment" />
         <activity android:name=".view.InvoicePage" />
         <activity android:name=".view.UserLoginActivity"></activity>
-        <activity android:name=".view.Approve" />
+        <activity
+            android:name=".view.Approve"
+            android:label="My Approved Claims"
+            android:parentActivityName=".view.Dashboard"
+            android:theme="@style/AppTheme" />
         <activity
             android:name=".view.ClaimPage"
-            android:label="Claims Page"
+            android:label="Claim Page"
             android:parentActivityName=".view.PendingClaims"
             android:theme="@style/AppTheme" />
         <activity
@@ -50,7 +59,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".view.OnBoarding" />
-        <activity android:name=".view.SplashScreen"></activity>
+        <activity android:name=".view.SplashScreen" />
 
         <meta-data
             android:name="preloaded_fonts"

@@ -49,7 +49,6 @@ public class ClaimPage extends AppCompatActivity {
         btnNextApprove = findViewById(R.id.btnNextApprove);
 
 
-
         // Bottom Navigation
         bottomnav = findViewById(R.id.claimnav);
         bottomnav.setSelectedItemId(R.id.item_detail);
@@ -57,13 +56,13 @@ public class ClaimPage extends AppCompatActivity {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 // switch case for each activity
-                switch (item.getItemId()){
+                switch (item.getItemId()) {
                     case R.id.item_detail:
                         return true;
                     case R.id.item_image:
                         //intent to send all variables to next activity
-                        startActivity(new Intent(getApplicationContext(),InvoicePage.class));
-                        overridePendingTransition(0,0);
+                        startActivity(new Intent(getApplicationContext(), InvoicePage.class));
+                        overridePendingTransition(0, 0);
                         Intent myIntent = new Intent(ClaimPage.this, InvoicePage.class);
                         myIntent.putExtra("notes", notes);
                         myIntent.putExtra("ClaimID", ClaimID);
@@ -88,8 +87,8 @@ public class ClaimPage extends AppCompatActivity {
                         return true;
                     case R.id.item_comment:
                         //intent to send all variables to next activity
-                        startActivity(new Intent(getApplicationContext(),Comment.class));
-                        overridePendingTransition(0,0);
+                        startActivity(new Intent(getApplicationContext(), Comment.class));
+                        overridePendingTransition(0, 0);
                         Intent CommentIntent = new Intent(ClaimPage.this, Comment.class);
                         CommentIntent.putExtra("notes", notes);
                         CommentIntent.putExtra("ClaimID", ClaimID);
@@ -122,7 +121,7 @@ public class ClaimPage extends AppCompatActivity {
         tvClaimNum = findViewById(R.id.tvClaimNum);
         tvInvoiceNum = findViewById(R.id.tvInvoiceNum);
         tvAmount = findViewById(R.id.tvAmount);
-         tvCus_Name = findViewById(R.id.tvCus);
+        tvCus_Name = findViewById(R.id.tvCus);
         tvOffer = findViewById(R.id.tvOffer);
         tvClaimDate = findViewById(R.id.tvClaimDate);
         tvCurrency = findViewById(R.id.tvCurrency);
@@ -147,14 +146,13 @@ public class ClaimPage extends AppCompatActivity {
         Double d = Double.valueOf(str); // returns Double object
         System.out.println(d);
 
-    if (d > 500){
-        btnApprove.setVisibility(View.INVISIBLE);
-        btnNextApprove.setVisibility(View.VISIBLE);
-    }else{
-        btnApprove.setVisibility(View.VISIBLE);
-        btnNextApprove.setVisibility(View.INVISIBLE);
-    }
-
+        if (d > 500) {
+            btnApprove.setVisibility(View.INVISIBLE);
+            btnNextApprove.setVisibility(View.VISIBLE);
+        } else {
+            btnApprove.setVisibility(View.VISIBLE);
+            btnNextApprove.setVisibility(View.INVISIBLE);
+        }
 
 
         btnApprove.setOnClickListener(new View.OnClickListener() {
@@ -164,7 +162,7 @@ public class ClaimPage extends AppCompatActivity {
 
             @Override
             public void onClick(View v) {
-                progressDialog = ProgressDialog.show(ClaimPage.this,"Approving...",null,true,true);
+                progressDialog = ProgressDialog.show(ClaimPage.this, "Approving...", null, true, true);
 
                 StringRequest request = new StringRequest(Request.Method.POST, "https://vendorcentral.000webhostapp.com/ApiApprove.php", new Response.Listener<String>() {
                     @Override
@@ -176,7 +174,7 @@ public class ClaimPage extends AppCompatActivity {
                     public void onErrorResponse(VolleyError error) {
                         Toast.makeText(ClaimPage.this, error.getMessage(), Toast.LENGTH_SHORT).show();
                     }
-                }){
+                }) {
 
                     @Override
                     protected Map<String, String> getParams() throws AuthFailureError {
@@ -191,6 +189,7 @@ public class ClaimPage extends AppCompatActivity {
                 };
 
                 progressDialog.dismiss();
+                startActivity(new Intent(ClaimPage.this, PendingClaims.class));
                 RequestQueue requestQueue = Volley.newRequestQueue(ClaimPage.this);
                 requestQueue.add(request);
             }
@@ -204,7 +203,7 @@ public class ClaimPage extends AppCompatActivity {
 
             @Override
             public void onClick(View v) {
-                progressDialog = ProgressDialog.show(ClaimPage.this,"Rejecting...",null,true,true);
+                progressDialog = ProgressDialog.show(ClaimPage.this, "Rejecting...", null, true, true);
 
                 StringRequest request = new StringRequest(Request.Method.POST, "https://vendorcentral.000webhostapp.com/ApiReject.php", new Response.Listener<String>() {
                     @Override
@@ -216,7 +215,7 @@ public class ClaimPage extends AppCompatActivity {
                     public void onErrorResponse(VolleyError error) {
                         Toast.makeText(ClaimPage.this, error.getMessage(), Toast.LENGTH_SHORT).show();
                     }
-                }){
+                }) {
 
                     @Override
                     protected Map<String, String> getParams() throws AuthFailureError {
@@ -237,9 +236,46 @@ public class ClaimPage extends AppCompatActivity {
             }
         });
 
+        btnNextApprove.setOnClickListener(new View.OnClickListener() {
+
+            String ClaimID = tvClaimID.getText().toString();
+            String ClaimNum = tvClaimNum.getText().toString();
+
+            @Override
+            public void onClick(View v) {
+                progressDialog = ProgressDialog.show(ClaimPage.this, "Approving...", null, true, true);
+
+                StringRequest request = new StringRequest(Request.Method.POST, "https://vendorcentral.000webhostapp.com/ApiNextApprove.php", new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
+                        Toast.makeText(ClaimPage.this, response, Toast.LENGTH_SHORT).show();
+                    }
+                }, new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        Toast.makeText(ClaimPage.this, error.getMessage(), Toast.LENGTH_SHORT).show();
+                    }
+                }) {
+
+                    @Override
+                    protected Map<String, String> getParams() throws AuthFailureError {
+
+                        Map<String, String> params = new HashMap<>();
+
+                        params.put("ClaimID", ClaimID);
+                        params.put("ClaimNum", ClaimNum);
+
+                        return params;
+                    }
+                };
+                progressDialog.dismiss();
+                RequestQueue requestQueue = Volley.newRequestQueue(ClaimPage.this);
+                requestQueue.add(request);
+
+
+            }
+        });
     }
-
-
 
     void GetAndSetIntentData(){
         // Get and set the data

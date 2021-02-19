@@ -6,16 +6,17 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
 
-import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
 import android.net.ConnectivityManager;
+import android.net.Network;
+import android.net.NetworkCapabilities;
 import android.net.NetworkInfo;
+import android.net.NetworkRequest;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -25,6 +26,7 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 import java.util.HashMap;
 
 import ie.ucc.bis.is4447.claim_app.R;
+import ie.ucc.bis.is4447.claim_app.helper.Connection;
 import ie.ucc.bis.is4447.claim_app.helper.SessionManager;
 
 public class Dashboard extends AppCompatActivity implements View.OnClickListener{
@@ -42,6 +44,9 @@ public class Dashboard extends AppCompatActivity implements View.OnClickListener
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dashboard);
+
+
+
 
         sessionManager = new SessionManager(this);
         sessionManager.checkLogin();
@@ -124,6 +129,10 @@ public class Dashboard extends AppCompatActivity implements View.OnClickListener
 //                }
 //            }
 //        });
+
+
+
+
     }
 
     @Override
@@ -147,4 +156,76 @@ public class Dashboard extends AppCompatActivity implements View.OnClickListener
             default: break;
     }
     }
+
+    // to check if we are connected to Network
+    boolean isConnected = true;
+
+    // to check if we are monitoring Network
+    private boolean monitoringConnectivity = false;
+
+
+    private ConnectivityManager.NetworkCallback connectivityCallback
+            = new ConnectivityManager.NetworkCallback() {
+        @Override
+        public void onAvailable(Network network) {
+            isConnected = true;
+
+            Log.d(TAG, "INTERNET CONNECTED");
+        }
+
+        @Override
+        public void onLost(Network network) {
+            isConnected = false;
+            startActivity(new Intent(Dashboard.this, Connection.class));
+            Log.d(TAG, "INTERNET LOST");
+        }
+    };
+
+    // Method to check network connectivity in Main Activity
+    private void checkConnectivity() {
+        // here we are getting the connectivity service from connectivity manager
+        final ConnectivityManager connectivityManager = (ConnectivityManager) getSystemService(
+                Context.CONNECTIVITY_SERVICE);
+
+        // Getting network Info
+        // give Network Access Permission in Manifest
+        final NetworkInfo activeNetworkInfo = connectivityManager.getActiveNetworkInfo();
+
+        // isConnected is a boolean variable
+        // here we check if network is connected or is getting connected
+        isConnected = activeNetworkInfo != null && activeNetworkInfo.isConnectedOrConnecting();
+
+        if (!isConnected) {
+            startActivity(new Intent(Dashboard.this, Connection.class));
+            Log.d(TAG, "NO NETWORK");
+
+// if Network is not connected we will register a network callback to  monitor network
+            connectivityManager.registerNetworkCallback(
+                    new NetworkRequest.Builder()
+                            .addCapability(NetworkCapabilities.NET_CAPABILITY_INTERNET)
+                            .build(), connectivityCallback);
+            monitoringConnectivity = true;
+        }
+
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        checkConnectivity();
+    }
+
+    @Override
+    protected void onPause() {
+        // if network is being moniterd then we will unregister the network callback
+        if (monitoringConnectivity) {
+            final ConnectivityManager connectivityManager
+                    = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
+            connectivityManager.unregisterNetworkCallback(connectivityCallback);
+            monitoringConnectivity = false;
+        }
+        super.onPause();
+    }
+
+
 }
