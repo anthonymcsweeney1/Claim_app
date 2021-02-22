@@ -112,6 +112,7 @@ public class PendingClaims extends AppCompatActivity {
                     public void onResponse(String response) {
                         if (response.contains("Claim")) {
 
+
                         } else {
                             Toast.makeText(PendingClaims.this, "No Claims to Approve.", Toast.LENGTH_LONG).show();
                             no_claims.setVisibility(View.VISIBLE);

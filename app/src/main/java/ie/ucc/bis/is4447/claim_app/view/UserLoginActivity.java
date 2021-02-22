@@ -21,6 +21,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 import java.util.HashMap;
 
@@ -37,6 +38,7 @@ public class UserLoginActivity extends AppCompatActivity {
     // to check if we are monitoring Network
     private boolean monitoringConnectivity = false;
 
+    private TextView validation;
     EditText Email, Password;
     Button LogIn ;
     String PasswordHolder, EmailHolder;
@@ -107,7 +109,7 @@ public class UserLoginActivity extends AppCompatActivity {
         Email = (EditText)findViewById(R.id.tvUser);
         Password = (EditText)findViewById(R.id.tvPass);
         LogIn = (Button)findViewById(R.id.Login);
-
+        validation = findViewById(R.id.tvValidation);
 
 
         LogIn.setOnClickListener(new View.OnClickListener() {
@@ -122,8 +124,9 @@ public class UserLoginActivity extends AppCompatActivity {
 
                 }
                 else {
+                    validation.setVisibility(View.VISIBLE);
+                    validation.setText("Please entry Username and Password to Login");
 
-                    Toast.makeText(UserLoginActivity.this, "Please fill all form fields.", Toast.LENGTH_LONG).show();
                     Log.d(TAG, "Fields were empty");
                 }
 
@@ -200,6 +203,9 @@ public class UserLoginActivity extends AppCompatActivity {
                 else{
 
                     Toast.makeText(UserLoginActivity.this,httpResponseMsg,Toast.LENGTH_LONG).show();
+                    validation.setVisibility(View.VISIBLE);
+                    validation.setText("Invalid Credentials used. Please try again");
+                    Log.d(TAG, "Login Failed");
                 }
 
             }

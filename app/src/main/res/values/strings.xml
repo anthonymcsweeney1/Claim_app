@@ -100,7 +100,8 @@
     <string name="charts">Charts</string>
     <string name="check_your_bank_activities">Check your bank activities</string>
     <string name="see_the_claims_you_approved">See the Claims you Approved</string>
-
+    <string name="next">Next</string>
+    <string name="see_the_claims_you_rejected">See the claims you rejected</string>
 
 
 </resources>

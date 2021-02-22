@@ -69,10 +69,11 @@
             android:layout_marginEnd="1dp"
             android:layout_marginBottom="-11dp"
             android:background="@android:color/transparent"
-            android:drawableEnd="@drawable/next_btn_foreground"
-            android:drawableRight="@drawable/next_btn_foreground"
             android:onClick="next"
-            android:paddingBottom="30dp" />
+            android:paddingBottom="30dp"
+            android:text="@string/next"
+            android:textColor="@color/bot_nav_colour"
+            android:textSize="18sp" />
 
 
     </RelativeLayout>

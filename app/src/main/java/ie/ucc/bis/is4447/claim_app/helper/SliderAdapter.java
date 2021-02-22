@@ -27,8 +27,8 @@ public class SliderAdapter extends PagerAdapter {
     int images[] = {
             // Images for each slide
             R.drawable.welcome,
-            R.drawable.saving,
-            R.drawable.edit,
+            R.drawable.list,
+            R.drawable.view_claim,
             R.drawable.track
 
     };

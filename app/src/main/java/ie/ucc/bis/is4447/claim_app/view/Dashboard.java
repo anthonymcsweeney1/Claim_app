@@ -82,7 +82,7 @@ public class Dashboard extends AppCompatActivity implements View.OnClickListener
                     case R.id.item_home:
                         return true;
                     case R.id.item_pending:
-                        startActivity(new Intent(getApplicationContext(),Approve.class));
+                        startActivity(new Intent(getApplicationContext(),OnBoarding.class));
                         overridePendingTransition(0,0);
                         return true;
                     case R.id.item_logout:
