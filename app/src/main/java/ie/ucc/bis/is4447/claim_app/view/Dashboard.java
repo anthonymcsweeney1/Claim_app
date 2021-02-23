@@ -31,7 +31,7 @@ import ie.ucc.bis.is4447.claim_app.helper.SessionManager;
 
 public class Dashboard extends AppCompatActivity implements View.OnClickListener{
 
-    private CardView cardPending, cardApproved, cardRejected, cardCharts;
+    private CardView cardPending, cardApproved, cardRejected;
     private ImageView imPending, imApproved;
     private TextView email;
     SessionManager sessionManager;
@@ -58,13 +58,13 @@ public class Dashboard extends AppCompatActivity implements View.OnClickListener
         cardPending = findViewById(R.id.cardPending);
         cardApproved =  findViewById(R.id.cardApproved);
         cardRejected =  findViewById(R.id.cardRejected);
-        cardCharts =  findViewById(R.id.cardCharts);
+
 
         //Add Click listener
         cardPending.setOnClickListener(this);
         cardApproved.setOnClickListener(this);
         cardRejected.setOnClickListener(this);
-        cardCharts.setOnClickListener(this);
+
 
         HashMap<String, String> user = sessionManager.getUserDetail();
         String mEmail = user.get(sessionManager.EMAIL);
@@ -143,16 +143,7 @@ public class Dashboard extends AppCompatActivity implements View.OnClickListener
         case R.id.cardPending : i = new Intent (this, PendingClaims.class); startActivity(i); break;
         case R.id.cardApproved : i = new Intent (this, Approve.class); startActivity(i); break;
             case R.id.cardRejected : i = new Intent (this, Rejected.class); startActivity(i); break;
-            case R.id.cardCharts :     ConnectivityManager manager = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
-                NetworkInfo networkInfo = manager.getActiveNetworkInfo();
 
-                if (networkInfo != null && networkInfo.isConnected()) {
-                    Toast.makeText(Dashboard.this, "Devise is connected to the internet", Toast.LENGTH_LONG).show();
-                    Log.d(TAG, "Devise is connected to the internet");
-                } else {
-                    Toast.makeText(Dashboard.this, "Devise is not connected to the internet", Toast.LENGTH_LONG).show();
-                    Log.d(TAG, "Devise is not connected to the internet");
-                } break;
             default: break;
     }
     }
