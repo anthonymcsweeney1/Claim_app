@@ -168,6 +168,8 @@ public class ClaimPage extends AppCompatActivity {
                     @Override
                     public void onResponse(String response) {
                         Toast.makeText(ClaimPage.this, response, Toast.LENGTH_SHORT).show();
+                        Intent intent = new Intent(ClaimPage.this, PendingClaims.class);
+                        startActivity(intent);
                     }
                 }, new Response.ErrorListener() {
                     @Override
@@ -209,6 +211,8 @@ public class ClaimPage extends AppCompatActivity {
                     @Override
                     public void onResponse(String response) {
                         Toast.makeText(ClaimPage.this, response, Toast.LENGTH_SHORT).show();
+                        Intent intent = new Intent(ClaimPage.this, PendingClaims.class);
+                        startActivity(intent);
                     }
                 }, new Response.ErrorListener() {
                     @Override
@@ -249,6 +253,8 @@ public class ClaimPage extends AppCompatActivity {
                     @Override
                     public void onResponse(String response) {
                         Toast.makeText(ClaimPage.this, response, Toast.LENGTH_SHORT).show();
+                        Intent intent = new Intent(ClaimPage.this, PendingClaims.class);
+                        startActivity(intent);
                     }
                 }, new Response.ErrorListener() {
                     @Override

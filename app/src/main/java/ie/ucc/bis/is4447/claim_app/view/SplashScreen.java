@@ -71,7 +71,9 @@ public class SplashScreen extends AppCompatActivity {
                     Log.d(TAG, "Open Login");
                     Intent intent = new Intent(SplashScreen.this, UserLoginActivity.class);
                     startActivity(intent);
+
                     finish();
+
                 }
 
                //Intent intent = new Intent(SplashScreen.this, OnBoarding.class);
