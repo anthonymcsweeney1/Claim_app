@@ -27,6 +27,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 import ie.ucc.bis.is4447.claim_app.R;
+import ie.ucc.bis.is4447.claim_app.helper.SessionManager;
 
 public class ClaimPage extends AppCompatActivity {
 
@@ -39,10 +40,18 @@ public class ClaimPage extends AppCompatActivity {
     private BottomNavigationView bottomnav;
     private static final String TAG = "MyActivity";
 
+    SessionManager sessionManager;
+    String mEmail;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_claim_page);
+
+        sessionManager = new SessionManager(this);
+        sessionManager.checkLogin();
+        HashMap<String, String> user = sessionManager.getUserDetail();
+        mEmail = user.get(sessionManager.EMAIL);
 
         btnApprove = findViewById(R.id.btnApprove);
         btnReject = findViewById(R.id.btnReject);
@@ -165,7 +174,7 @@ public class ClaimPage extends AppCompatActivity {
             public void onClick(View v) {
                 progressDialog = ProgressDialog.show(ClaimPage.this, "Approving...", null, true, true);
 
-                StringRequest request = new StringRequest(Request.Method.POST, "https://vendorcentral.000webhostapp.com/ApiApprove.php", new Response.Listener<String>() {
+                StringRequest request = new StringRequest(Request.Method.POST, "https://vendorcentral.000webhostapp.com/ApiApprove.php?user_name=" + mEmail, new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
                         Toast.makeText(ClaimPage.this, response, Toast.LENGTH_SHORT).show();
@@ -186,8 +195,8 @@ public class ClaimPage extends AppCompatActivity {
 
                         params.put("ClaimID", ClaimID);
                         params.put("ClaimNum", ClaimNum);
-                        params.put("notes", notes);
-                        params.put("name", ClaimNum);
+
+
 
                         return params;
                     }
@@ -210,7 +219,7 @@ public class ClaimPage extends AppCompatActivity {
             public void onClick(View v) {
                 progressDialog = ProgressDialog.show(ClaimPage.this, "Rejecting...", null, true, true);
 
-                StringRequest request = new StringRequest(Request.Method.POST, "https://vendorcentral.000webhostapp.com/ApiReject.php", new Response.Listener<String>() {
+                StringRequest request = new StringRequest(Request.Method.POST, "https://vendorcentral.000webhostapp.com/ApiReject.php?user_name=" + mEmail, new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
                         Toast.makeText(ClaimPage.this, response, Toast.LENGTH_SHORT).show();
@@ -252,7 +261,7 @@ public class ClaimPage extends AppCompatActivity {
             public void onClick(View v) {
                 progressDialog = ProgressDialog.show(ClaimPage.this, "Approving...", null, true, true);
 
-                StringRequest request = new StringRequest(Request.Method.POST, "https://vendorcentral.000webhostapp.com/ApiNextApprove.php", new Response.Listener<String>() {
+                StringRequest request = new StringRequest(Request.Method.POST, "https://vendorcentral.000webhostapp.com/ApiNextApprove.php?user_name=" + mEmail, new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
                         Toast.makeText(ClaimPage.this, response, Toast.LENGTH_SHORT).show();

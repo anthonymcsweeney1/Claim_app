@@ -100,7 +100,7 @@ public class Dashboard extends AppCompatActivity implements View.OnClickListener
         });
 
 
-        loadProducts();
+        loadName();
 
     }
 
@@ -187,7 +187,7 @@ public class Dashboard extends AppCompatActivity implements View.OnClickListener
         super.onPause();
     }
 
-    private void loadProducts() {
+    private void loadName() {
 
         /*
          * Creating a String Request
