@@ -87,7 +87,8 @@ public class ClaimAdapter extends RecyclerView.Adapter<ClaimAdapter.ClaimViewHol
                 intent.putExtra("Processor", String.valueOf(claim.getProcessor()));
                 intent.putExtra("request_id", String.valueOf(claim.getrequestid()));
                 intent.putExtra("notes", String.valueOf(claim.getnotes()));
-                Toast.makeText(mCtx, String.valueOf(claim.getClaimID()), Toast.LENGTH_SHORT).show();
+
+
                 mCtx.startActivity(intent);
 
                 Log.d(TAG, "Claim " +  String.valueOf(claim.getClaimNum())+ " Clicked");

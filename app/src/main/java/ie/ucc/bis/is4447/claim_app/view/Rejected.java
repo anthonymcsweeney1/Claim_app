@@ -20,6 +20,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 import ie.ucc.bis.is4447.claim_app.R;
@@ -27,11 +28,12 @@ import ie.ucc.bis.is4447.claim_app.helper.ActionedAdapter;
 import ie.ucc.bis.is4447.claim_app.helper.Claim;
 import ie.ucc.bis.is4447.claim_app.helper.InBackgroundClass;
 import ie.ucc.bis.is4447.claim_app.helper.RejectedAdapter;
+import ie.ucc.bis.is4447.claim_app.helper.SessionManager;
 
 public class Rejected extends AppCompatActivity {
 
-    //JSON Data URL
-    private static final String URL_CLAIMS = "https://vendorcentral.000webhostapp.com/ApiClaimApproved.php";
+    SessionManager sessionManager;
+    String mEmail;
 
     private RejectedAdapter adapter;
     //a list to store all the products
@@ -49,6 +51,11 @@ public class Rejected extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_rejected);
 
+        sessionManager = new SessionManager(this);
+        sessionManager.checkLogin();
+        HashMap<String, String> user = sessionManager.getUserDetail();
+        mEmail = user.get(sessionManager.EMAIL);
+
         no_claims = findViewById(R.id.no_claims);
         //getting the recyclerview from xml
         recyclerView = findViewById(R.id.recylcerView);
@@ -59,7 +66,7 @@ public class Rejected extends AppCompatActivity {
         claimList = new ArrayList<>();
 
         InBackgroundClass myClass = new InBackgroundClass(Rejected.this);
-        myClass.execute(URL_CLAIMS);
+        myClass.execute("https://vendorcentral.000webhostapp.com/ApiClaimRejected.php?approveremail=" + mEmail);
 
         //this method will fetch and parse json
         //to display it in recyclerview
@@ -76,14 +83,14 @@ public class Rejected extends AppCompatActivity {
          * Then we have a Response Listener and a Error Listener
          * In response listener we will get the JSON response as a String
          * */
-        StringRequest stringRequest = new StringRequest(Request.Method.GET, URL_CLAIMS,
+        StringRequest stringRequest = new StringRequest(Request.Method.GET,"https://vendorcentral.000webhostapp.com/ApiClaimRejected.php?approveremail=" + mEmail,
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
                         if (response.contains("Claim")) {
 
                         } else {
-                            Toast.makeText(Rejected.this, "No Claims to Approve.", Toast.LENGTH_LONG).show();
+                            Toast.makeText(Rejected.this, "No Rejected Claims.", Toast.LENGTH_LONG).show();
                             no_claims.setVisibility(View.VISIBLE);
                         }
                         try {

@@ -4,6 +4,7 @@ package ie.ucc.bis.is4447.claim_app.view;
 
 //Connection Check
 // https://stackoverflow.com/questions/21254555/how-to-check-internet-connectivity-continuously-in-background-while-android-appl
+
 import androidx.appcompat.app.AppCompatActivity;
 import android.app.ProgressDialog;
 import android.content.BroadcastReceiver;

@@ -28,7 +28,7 @@
             android:layout_width="200dp"
             android:layout_height="45dp"
             android:layout_marginStart="30dp"
-            android:layout_marginTop="140dp"
+            android:layout_marginTop="110dp"
             android:fontFamily="@font/allerta"
             android:text="@string/Check"
             android:textColor="@color/black"
@@ -38,25 +38,10 @@
             app:layout_constraintTop_toBottomOf="@+id/tvemail"
             tools:inputType="textMultiLine" />
 
-        <TextView
-            android:id="@+id/tvhello"
-            android:layout_width="200dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="30dp"
-            android:layout_marginTop="50dp"
-            android:fontFamily="@font/allerta"
-            android:text="@string/Sess"
-            android:textColor="@color/black"
-            android:textSize="18sp"
-            android:textStyle="bold"
-            app:layout_constraintEnd_toStartOf="@+id/ivLogo"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/ivLogo"
-            tools:inputType="textMultiLine" />
 
         <TextView
             android:id="@+id/tvemail"
-            android:layout_width="200dp"
+            android:layout_width="226dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="30dp"
             android:layout_marginTop="80dp"
@@ -133,7 +118,7 @@
                     android:gravity="center"
                     android:padding="5dp"
                     android:text="@string/view_claims_that_are_pending_your_approval"
-                    android:textColor="@android:color/darker_gray" />
+                    android:textColor="?android:attr/statusBarColor" />
 
             </LinearLayout>
         </androidx.cardview.widget.CardView>
@@ -190,7 +175,7 @@
                     android:gravity="center"
                     android:padding="5dp"
                     android:text="@string/see_the_claims_you_approved"
-                    android:textColor="@android:color/darker_gray" />
+                    android:textColor="?android:attr/statusBarColor" />
 
             </LinearLayout>
         </androidx.cardview.widget.CardView>
@@ -235,7 +220,7 @@
                     android:gravity="center"
                     android:padding="5dp"
                     android:text="@string/see_the_claims_you_rejected"
-                    android:textColor="@android:color/darker_gray" />
+                    android:textColor="?android:attr/statusBarColor" />
 
             </LinearLayout>
 

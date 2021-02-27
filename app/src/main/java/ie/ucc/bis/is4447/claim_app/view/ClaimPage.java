@@ -160,6 +160,7 @@ public class ClaimPage extends AppCompatActivity {
             String ClaimID = tvClaimID.getText().toString();
             String ClaimNum = tvClaimNum.getText().toString();
 
+
             @Override
             public void onClick(View v) {
                 progressDialog = ProgressDialog.show(ClaimPage.this, "Approving...", null, true, true);
@@ -185,6 +186,8 @@ public class ClaimPage extends AppCompatActivity {
 
                         params.put("ClaimID", ClaimID);
                         params.put("ClaimNum", ClaimNum);
+                        params.put("notes", notes);
+                        params.put("name", ClaimNum);
 
                         return params;
                     }

@@ -51,16 +51,18 @@
             android:label="Claims to Approve"
             android:parentActivityName=".view.Dashboard"
             android:theme="@style/AppTheme"/>
-        <activity android:name=".view.Dashboard">
 
+        <activity android:name=".view.Dashboard">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
+
         <activity android:name=".view.OnBoarding" />
         <activity android:name=".view.SplashScreen">
-        <intent-filter>
-            <action android:name="android.intent.action.MAIN" />
 
-            <category android:name="android.intent.category.LAUNCHER" />
-        </intent-filter>
     </activity>
 
         <meta-data

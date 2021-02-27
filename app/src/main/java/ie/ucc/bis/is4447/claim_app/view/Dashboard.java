@@ -21,20 +21,31 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.android.volley.Request;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.util.HashMap;
 
 import ie.ucc.bis.is4447.claim_app.R;
+import ie.ucc.bis.is4447.claim_app.helper.ActionedAdapter;
+import ie.ucc.bis.is4447.claim_app.helper.Claim;
 import ie.ucc.bis.is4447.claim_app.helper.Connection;
 import ie.ucc.bis.is4447.claim_app.helper.SessionManager;
 
 public class Dashboard extends AppCompatActivity implements View.OnClickListener{
 
     private CardView cardPending, cardApproved, cardRejected;
-    private ImageView imPending, imApproved;
     private TextView email;
     SessionManager sessionManager;
+    String mEmail;
 
     private BottomNavigationView bottomnav;
     private static final String TAG = "MyActivity";
@@ -46,10 +57,10 @@ public class Dashboard extends AppCompatActivity implements View.OnClickListener
         setContentView(R.layout.activity_dashboard);
 
 
-
-
         sessionManager = new SessionManager(this);
         sessionManager.checkLogin();
+        HashMap<String, String> user = sessionManager.getUserDetail();
+        mEmail = user.get(sessionManager.EMAIL);
 
         email = findViewById(R.id.tvemail);
 
@@ -65,11 +76,6 @@ public class Dashboard extends AppCompatActivity implements View.OnClickListener
         cardApproved.setOnClickListener(this);
         cardRejected.setOnClickListener(this);
 
-
-        HashMap<String, String> user = sessionManager.getUserDetail();
-        String mEmail = user.get(sessionManager.EMAIL);
-
-        email.setText(mEmail);
 
         // Bottom Navigation
         bottomnav = findViewById(R.id.bottomnav);
@@ -93,45 +99,8 @@ public class Dashboard extends AppCompatActivity implements View.OnClickListener
             }
         });
 
-        // Navigate to recycler view page
-//        btnPending.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                Intent intent = new Intent(Dashboard.this, PendingClaims.class);
-//                startActivity(intent);
-//                Log.i(TAG, "View Pending Claims Clicked");
-//
-//            }
-//        });
-        // Navigate to input page
-//        btnPast.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                Intent intent = new Intent(Dashboard.this, OnBoarding.class);
-//                startActivity(intent);
-//                Log.d(TAG, "Add new clicked");
-//            }
-//        });
 
-        //Check connection to internet
-//        btnConn.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                ConnectivityManager manager = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
-//                NetworkInfo networkInfo = manager.getActiveNetworkInfo();
-//
-//                if (networkInfo != null && networkInfo.isConnected()) {
-//                    Toast.makeText(Dashboard.this, "Devise is connected to the internet", Toast.LENGTH_LONG).show();
-//                    Log.d(TAG, "Devise is connected to the internet");
-//                } else {
-//                    Toast.makeText(Dashboard.this, "Devise is not connected to the internet", Toast.LENGTH_LONG).show();
-//                    Log.d(TAG, "Devise is not connected to the internet");
-//                }
-//            }
-//        });
-
-
-
+        loadProducts();
 
     }
 
@@ -217,6 +186,37 @@ public class Dashboard extends AppCompatActivity implements View.OnClickListener
         }
         super.onPause();
     }
+
+    private void loadProducts() {
+
+        /*
+         * Creating a String Request
+         * The request type is GET defined by first parameter
+         * The URL is defined in the second parameter
+         * Then we have a Response Listener and a Error Listener
+         * In response listener we will get the JSON response as a String
+         * */
+        StringRequest stringRequest = new StringRequest(Request.Method.GET, "https://vendorcentral.000webhostapp.com/getName.php?user_name="  + mEmail,
+                new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
+                        Log.d(TAG, response);
+                        email.setText( "Hello " +response);
+                    }
+                },
+                new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+
+                    }
+                });
+
+        //adding our stringrequest to queue
+        Volley.newRequestQueue(this).add(stringRequest);
+    }
+
+
+
 
 
 }
