@@ -377,7 +377,7 @@ xmlns:app="http://schemas.android.com/apk/res-auto">
             android:id="@+id/btnApprove"
             android:layout_width="160dp"
             android:layout_height="40dp"
-            android:layout_marginStart="210dp"
+            android:layout_marginStart="20dp"
             android:layout_marginTop="20dp"
             android:background="@color/success"
             android:text="@string/approve"
@@ -389,7 +389,7 @@ xmlns:app="http://schemas.android.com/apk/res-auto">
             android:id="@+id/btnNextApprove"
             android:layout_width="160dp"
             android:layout_height="40dp"
-            android:layout_marginStart="210dp"
+            android:layout_marginStart="20dp"
             android:layout_marginTop="20dp"
             android:background="@color/info"
             android:text="@string/nextapprove"
@@ -402,11 +402,11 @@ xmlns:app="http://schemas.android.com/apk/res-auto">
             android:id="@+id/btnReject"
             android:layout_width="160dp"
             android:layout_height="40dp"
-            android:layout_marginStart="20dp"
+            android:layout_marginStart="210dp"
             android:layout_marginTop="20dp"
             android:background="@color/design_default_color_error"
             android:text="@string/reject"
-            android:textColor="@color/white"></Button>
+            android:textColor="@color/white"/>
 
 
 

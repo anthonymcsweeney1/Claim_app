@@ -3,13 +3,28 @@ package ie.ucc.bis.is4447.claim_app.view;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.android.volley.AuthFailureError;
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.textfield.TextInputEditText;
+
+import java.util.HashMap;
+import java.util.Map;
 
 import ie.ucc.bis.is4447.claim_app.R;
 import ie.ucc.bis.is4447.claim_app.helper.Claim;
@@ -17,7 +32,10 @@ import ie.ucc.bis.is4447.claim_app.helper.Claim;
 public class Comment extends AppCompatActivity {
 
     TextInputEditText tvPastComment, tvAddComment;
+    Button btnUpdate;
     String  ClaimID, InvoiceNum, Status, customer_reason, claim_type, offercode, settlement, amount, invoice_date, creation_date, CusID, Cus_Name, BillTo, BillToAcc, ShipTo, Approver, ApproverEmail, OperatingUnit, Currency, ClaimNum, ShipToAcc, Creator, Overage,  notes, Processor, approval_level, lastupdated_by, lastupdate, request_id ;
+    ProgressDialog progressDialog;
+    String getCommentText;
 
     private BottomNavigationView bottomnav;
     private static final String TAG = "MyActivity";
@@ -28,6 +46,7 @@ public class Comment extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_comment);
 
+    btnUpdate = findViewById(R.id.btnUpdate);
 
         // Bottom Navigation
         bottomnav = findViewById(R.id.claimnav);
@@ -61,6 +80,8 @@ public class Comment extends AppCompatActivity {
                         CommentIntent.putExtra("ShipToAcc", ShipToAcc);
                         CommentIntent.putExtra("Processor", Processor);
                         CommentIntent.putExtra("request_id", request_id);
+                        CommentIntent.putExtra("approval_level", approval_level);
+                        CommentIntent.putExtra("notes", notes);
                         startActivity(CommentIntent);
                         return true;
                     case R.id.item_image:
@@ -85,6 +106,8 @@ public class Comment extends AppCompatActivity {
                         ImageIntent.putExtra("ShipToAcc", ShipToAcc);
                         ImageIntent.putExtra("Processor", Processor);
                         ImageIntent.putExtra("request_id", request_id);
+                        ImageIntent.putExtra("approval_level", approval_level);
+                        ImageIntent.putExtra("notes", notes);
                         startActivity(ImageIntent);
                         return true;
                 }
@@ -92,13 +115,16 @@ public class Comment extends AppCompatActivity {
             }
         });
 
+
         tvPastComment = findViewById(R.id.tvPastComment);
         tvAddComment = findViewById(R.id.tvAddComment);
 
 
 
+        approval_level = getIntent().getStringExtra("approval_level");
         notes = getIntent().getStringExtra("notes");
         tvPastComment.setText(notes);
+
 
         ClaimNum = getIntent().getStringExtra("ClaimNum");
         InvoiceNum = getIntent().getStringExtra("InvoiceNum");
@@ -117,5 +143,57 @@ public class Comment extends AppCompatActivity {
         Processor = getIntent().getStringExtra("Processor");
         request_id = getIntent().getStringExtra("request_id");
         amount = getIntent().getStringExtra("amount");
+
+
+        // Check Approval level for Comment
+
+
+        String levelcheck = approval_level;
+        int iLevel = Integer.parseInt(levelcheck);
+
+
+
+        if (iLevel == 1) {
+            Log.v(TAG, "Level 1" );
+
+        }
+
+        if (iLevel == 2)  {
+            Log.v(TAG, "Level 2");
+        }
+
+        if (iLevel == 3) {
+            Log.v(TAG, "Level 3");
+
+        }
+
+        btnUpdate.setOnClickListener(new View.OnClickListener() {
+
+
+            @Override
+            public void onClick(View v) {
+                progressDialog  = ProgressDialog.show(Comment.this, "Updating...", null, true, true);
+
+                StringRequest request = new StringRequest(Request.Method.POST, "https://vendorcentral.000webhostapp.com/ApiComment.php?ClaimNum=" + ClaimNum + "&Comment=" +  tvAddComment.getText().toString() + "&approval_level=" + approval_level, new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
+                        Toast.makeText(Comment.this, response, Toast.LENGTH_SHORT).show();
+
+                    }
+                }, new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        Toast.makeText(Comment.this, error.getMessage(), Toast.LENGTH_SHORT).show();
+                    }
+                }) {
+
+                };
+                progressDialog.dismiss();
+                RequestQueue requestQueue = Volley.newRequestQueue(Comment.this);
+                requestQueue.add(request);
+
+
+            }
+        });
     }
 }

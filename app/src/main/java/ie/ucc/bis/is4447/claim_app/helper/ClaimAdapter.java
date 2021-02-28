@@ -87,6 +87,7 @@ public class ClaimAdapter extends RecyclerView.Adapter<ClaimAdapter.ClaimViewHol
                 intent.putExtra("Processor", String.valueOf(claim.getProcessor()));
                 intent.putExtra("request_id", String.valueOf(claim.getrequestid()));
                 intent.putExtra("notes", String.valueOf(claim.getnotes()));
+                intent.putExtra("approval_level", String.valueOf(claim.getapproval_level()));
 
 
                 mCtx.startActivity(intent);

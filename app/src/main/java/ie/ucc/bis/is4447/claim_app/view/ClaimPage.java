@@ -8,6 +8,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
@@ -73,7 +74,6 @@ public class ClaimPage extends AppCompatActivity {
                         startActivity(new Intent(getApplicationContext(), InvoicePage.class));
                         overridePendingTransition(0, 0);
                         Intent myIntent = new Intent(ClaimPage.this, InvoicePage.class);
-                        myIntent.putExtra("notes", notes);
                         myIntent.putExtra("ClaimID", ClaimID);
                         myIntent.putExtra("ClaimNum", ClaimNum);
                         myIntent.putExtra("InvoiceNum", InvoiceNum);
@@ -92,6 +92,8 @@ public class ClaimPage extends AppCompatActivity {
                         myIntent.putExtra("ShipToAcc", ShipToAcc);
                         myIntent.putExtra("Processor", Processor);
                         myIntent.putExtra("request_id", request_id);
+                        myIntent.putExtra("approval_level", approval_level);
+                        myIntent.putExtra("notes", notes);
                         startActivity(myIntent);
                         return true;
                     case R.id.item_comment:
@@ -99,7 +101,6 @@ public class ClaimPage extends AppCompatActivity {
                         startActivity(new Intent(getApplicationContext(), Comment.class));
                         overridePendingTransition(0, 0);
                         Intent CommentIntent = new Intent(ClaimPage.this, Comment.class);
-                        CommentIntent.putExtra("notes", notes);
                         CommentIntent.putExtra("ClaimID", ClaimID);
                         CommentIntent.putExtra("ClaimNum", ClaimNum);
                         CommentIntent.putExtra("InvoiceNum", InvoiceNum);
@@ -118,6 +119,8 @@ public class ClaimPage extends AppCompatActivity {
                         CommentIntent.putExtra("ShipToAcc", ShipToAcc);
                         CommentIntent.putExtra("Processor", Processor);
                         CommentIntent.putExtra("request_id", request_id);
+                        CommentIntent.putExtra("approval_level", approval_level);
+                        CommentIntent.putExtra("notes", notes);
                         startActivity(CommentIntent);
                         return true;
                 }
@@ -153,14 +156,47 @@ public class ClaimPage extends AppCompatActivity {
 
         String str = Overage;
         Double d = Double.valueOf(str); // returns Double object
-        System.out.println(d);
 
-        if (d > 500) {
-            btnApprove.setVisibility(View.INVISIBLE);
-            btnNextApprove.setVisibility(View.VISIBLE);
-        } else {
-            btnApprove.setVisibility(View.VISIBLE);
-            btnNextApprove.setVisibility(View.INVISIBLE);
+
+        String levelcheck = approval_level;
+        int iLevel = Integer.parseInt(levelcheck);
+
+System.out.println(levelcheck);
+
+        Log.v(TAG, String.valueOf(d));
+
+        if (iLevel == 1) {
+            Log.v(TAG, "Level 1");
+            if (d < 500) {
+                btnApprove.setVisibility(View.VISIBLE);
+                btnNextApprove.setVisibility(View.INVISIBLE);
+            }
+
+            if (d > 499.99) {
+                btnApprove.setVisibility(View.INVISIBLE);
+                btnNextApprove.setVisibility(View.VISIBLE);
+            }
+        }
+
+        if (iLevel == 2)  {
+            Log.v(TAG, "Level 2");
+            if (d > 5000) {
+                btnApprove.setVisibility(View.INVISIBLE);
+                btnNextApprove.setVisibility(View.VISIBLE);
+            }
+
+            if (d < 4999.99) {
+                btnApprove.setVisibility(View.VISIBLE);
+                btnNextApprove.setVisibility(View.INVISIBLE);
+
+            }
+        }
+
+        if (iLevel == 3) {
+            Log.v(TAG, "Level 3");
+                btnApprove.setVisibility(View.VISIBLE);
+                btnNextApprove.setVisibility(View.INVISIBLE);
+
         }
 
 
@@ -259,7 +295,7 @@ public class ClaimPage extends AppCompatActivity {
 
             @Override
             public void onClick(View v) {
-                progressDialog = ProgressDialog.show(ClaimPage.this, "Approving...", null, true, true);
+                progressDialog  = ProgressDialog.show(ClaimPage.this, "Approving...", null, true, true);
 
                 StringRequest request = new StringRequest(Request.Method.POST, "https://vendorcentral.000webhostapp.com/ApiNextApprove.php?user_name=" + mEmail, new Response.Listener<String>() {
                     @Override
@@ -320,6 +356,7 @@ public class ClaimPage extends AppCompatActivity {
             Processor = getIntent().getStringExtra("Processor");
             request_id = getIntent().getStringExtra("request_id");
             notes = getIntent().getStringExtra("notes");
+        approval_level = getIntent().getStringExtra("approval_level");
 
 
             //setting data

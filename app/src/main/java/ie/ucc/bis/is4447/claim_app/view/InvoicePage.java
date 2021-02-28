@@ -91,6 +91,8 @@ public class InvoicePage extends AppCompatActivity {
                         myIntent.putExtra("ShipToAcc", ShipToAcc);
                         myIntent.putExtra("Processor", Processor);
                         myIntent.putExtra("request_id", request_id);
+                        myIntent.putExtra("approval_level", approval_level);
+                        myIntent.putExtra("notes", notes);
                         startActivity(myIntent);
 
                         return true;
@@ -116,6 +118,8 @@ public class InvoicePage extends AppCompatActivity {
                         CommentIntent.putExtra("ShipToAcc", ShipToAcc);
                         CommentIntent.putExtra("Processor", Processor);
                         CommentIntent.putExtra("request_id", request_id);
+                        CommentIntent.putExtra("approval_level", approval_level);
+                        CommentIntent.putExtra("notes", notes);
                         startActivity(CommentIntent);
                         return true;
                 }
@@ -145,6 +149,7 @@ public class InvoicePage extends AppCompatActivity {
         request_id = getIntent().getStringExtra("request_id");
         amount = getIntent().getStringExtra("amount");
         notes = getIntent().getStringExtra("notes");
+        approval_level = getIntent().getStringExtra("approval_level");
 
 
     }
