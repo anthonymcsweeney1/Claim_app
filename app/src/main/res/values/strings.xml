@@ -102,6 +102,8 @@
     <string name="see_the_claims_you_approved">See the Claims you Approved</string>
     <string name="next">Next</string>
     <string name="see_the_claims_you_rejected">See the claims you rejected</string>
+    <string name="view_claim_analyst_comment">View Claim Analyst Comment</string>
+    <string name="add_new_comment">Add new Comment</string>
 
 
 </resources>

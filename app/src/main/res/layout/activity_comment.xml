@@ -1,12 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout
-    android:layout_height="match_parent"
-    android:layout_width="match_parent"
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".view.Comment">
 
 
-    <androidx.core.widget.NestedScrollView
+
+<androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:id="@+id/scroll_view">
@@ -19,11 +22,11 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <TextView
-            android:layout_width="133dp"
-            android:layout_height="28dp"
+            android:layout_width="310dp"
+            android:layout_height="wrap_content"
             android:layout_marginTop="15dp"
             android:fontFamily="@font/allerta"
-            android:text="Submit Comment"
+            android:text="@string/view_claim_analyst_comment"
             android:textAlignment="center"
             android:textAllCaps="false"
             android:textColor="@color/second"
@@ -62,11 +65,11 @@
                 android:layout_marginTop="20dp">
 
                 <TextView
-                    android:layout_width="133dp"
-                    android:layout_height="28dp"
+                    android:layout_width="233dp"
+                    android:layout_height="39dp"
                     android:layout_marginTop="20dp"
                     android:fontFamily="@font/allerta"
-                    android:text="Add Comment"
+                    android:text="@string/add_new_comment"
                     android:textAlignment="center"
                     android:textAllCaps="false"
                     android:textColor="@color/second"

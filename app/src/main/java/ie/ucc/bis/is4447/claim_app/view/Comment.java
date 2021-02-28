@@ -36,6 +36,7 @@ public class Comment extends AppCompatActivity {
     String  ClaimID, InvoiceNum, Status, customer_reason, claim_type, offercode, settlement, amount, invoice_date, creation_date, CusID, Cus_Name, BillTo, BillToAcc, ShipTo, Approver, ApproverEmail, OperatingUnit, Currency, ClaimNum, ShipToAcc, Creator, Overage,  notes, Processor, approval_level, lastupdated_by, lastupdate, request_id ;
     ProgressDialog progressDialog;
     String getCommentText;
+    String final_approve;
 
     private BottomNavigationView bottomnav;
     private static final String TAG = "MyActivity";
@@ -143,7 +144,9 @@ public class Comment extends AppCompatActivity {
         Processor = getIntent().getStringExtra("Processor");
         request_id = getIntent().getStringExtra("request_id");
         amount = getIntent().getStringExtra("amount");
+        final_approve = getIntent().getStringExtra("final_approve");
 
+        System.out.println(final_approve);
 
         // Check Approval level for Comment
 
@@ -167,6 +170,8 @@ public class Comment extends AppCompatActivity {
 
         }
 
+        Log.v(TAG, ClaimNum+ ", " + tvAddComment.getText().toString()+ ", " + final_approve+ ", " + approval_level);
+
         btnUpdate.setOnClickListener(new View.OnClickListener() {
 
 
@@ -174,7 +179,7 @@ public class Comment extends AppCompatActivity {
             public void onClick(View v) {
                 progressDialog  = ProgressDialog.show(Comment.this, "Updating...", null, true, true);
 
-                StringRequest request = new StringRequest(Request.Method.POST, "https://vendorcentral.000webhostapp.com/ApiComment.php?ClaimNum=" + ClaimNum + "&Comment=" +  tvAddComment.getText().toString() + "&approval_level=" + approval_level, new Response.Listener<String>() {
+                StringRequest request = new StringRequest(Request.Method.POST, "https://vendorcentral.000webhostapp.com/ApiComment.php?ClaimNum=" + ClaimNum + "&Comment=" +  tvAddComment.getText().toString() + "&approval_level=" + approval_level+ "&final_approve=" + final_approve, new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
                         Toast.makeText(Comment.this, response, Toast.LENGTH_SHORT).show();

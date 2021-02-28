@@ -33,8 +33,15 @@
                 android:resource="@xml/external_files" />
         </provider>
 
-        <activity android:name=".view.Comment" />
-        <activity android:name=".view.InvoicePage" />
+        <activity android:name=".view.Comment"
+
+            />
+
+        <activity android:name=".view.InvoicePage"
+            android:label="Claim Page"
+            android:parentActivityName=".view.PendingClaims"
+            android:theme="@style/AppTheme" />
+
         <activity android:name=".view.UserLoginActivity"/>
         <activity
             android:name=".view.Approve"

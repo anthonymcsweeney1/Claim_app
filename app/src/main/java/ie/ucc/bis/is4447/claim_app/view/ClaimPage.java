@@ -36,6 +36,7 @@ public class ClaimPage extends AppCompatActivity {
     String  ClaimID, InvoiceNum, Status, customer_reason, claim_type, offercode, settlement, amount, invoice_date, creation_date, CusID, Cus_Name, BillTo, BillToAcc, ShipTo, Approver, ApproverEmail, Overage, OperatingUnit, Currency, ClaimNum, ShipToAcc, Creator,  notes, Processor, approval_level, lastupdated_by, lastupdate, request_id ;
     int value;
     Button btnApprove, btnReject, btnNextApprove;
+    String final_approve;
     ProgressDialog progressDialog;
 
     private BottomNavigationView bottomnav;
@@ -94,6 +95,7 @@ public class ClaimPage extends AppCompatActivity {
                         myIntent.putExtra("request_id", request_id);
                         myIntent.putExtra("approval_level", approval_level);
                         myIntent.putExtra("notes", notes);
+                        myIntent.putExtra("final_approve", final_approve);
                         startActivity(myIntent);
                         return true;
                     case R.id.item_comment:
@@ -121,6 +123,7 @@ public class ClaimPage extends AppCompatActivity {
                         CommentIntent.putExtra("request_id", request_id);
                         CommentIntent.putExtra("approval_level", approval_level);
                         CommentIntent.putExtra("notes", notes);
+                        CommentIntent.putExtra("final_approve", final_approve);
                         startActivity(CommentIntent);
                         return true;
                 }
@@ -165,16 +168,19 @@ System.out.println(levelcheck);
 
         Log.v(TAG, String.valueOf(d));
 
+
         if (iLevel == 1) {
             Log.v(TAG, "Level 1");
             if (d < 500) {
                 btnApprove.setVisibility(View.VISIBLE);
                 btnNextApprove.setVisibility(View.INVISIBLE);
+                final_approve = "True";
             }
 
             if (d > 499.99) {
                 btnApprove.setVisibility(View.INVISIBLE);
                 btnNextApprove.setVisibility(View.VISIBLE);
+                final_approve = "False";
             }
         }
 
@@ -183,12 +189,13 @@ System.out.println(levelcheck);
             if (d > 5000) {
                 btnApprove.setVisibility(View.INVISIBLE);
                 btnNextApprove.setVisibility(View.VISIBLE);
+                final_approve = "False";
             }
 
             if (d < 4999.99) {
                 btnApprove.setVisibility(View.VISIBLE);
                 btnNextApprove.setVisibility(View.INVISIBLE);
-
+                final_approve = "True";
             }
         }
 
@@ -196,7 +203,7 @@ System.out.println(levelcheck);
             Log.v(TAG, "Level 3");
                 btnApprove.setVisibility(View.VISIBLE);
                 btnNextApprove.setVisibility(View.INVISIBLE);
-
+            final_approve = "True";
         }
 
 
