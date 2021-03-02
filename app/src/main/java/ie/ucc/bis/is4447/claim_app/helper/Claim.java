@@ -31,9 +31,10 @@ public class Claim {
     private String lastupdated_by;
     private String lastupdate;
     private int requestid;
+    private String Action_Date4;
 
 
-    public Claim(int ClaimID, String InvoiceNum, String Status, String customer_reason, String claim_type, String offercode, String settlement, double amount, String invoice_date, String creation_date, int Cus_ID, String Cus_Name, String BillTo, String BillToAcc, String ShipTo, String Approver, String ApproverEmail, String OperatingUnit, String Currency, String ClaimNum, String ShipToAcc, String Creator, String Overage, String notes, String Processor, String approval_level, String lastupdated_by, String lastupdate, int requestid) {
+    public Claim(int ClaimID, String InvoiceNum, String Status, String customer_reason, String claim_type, String offercode, String settlement, double amount, String invoice_date, String creation_date, int Cus_ID, String Cus_Name, String BillTo, String BillToAcc, String ShipTo, String Approver, String ApproverEmail, String OperatingUnit, String Currency, String ClaimNum, String ShipToAcc, String Creator, String Overage, String notes, String Processor, String approval_level, String lastupdated_by, String lastupdate, int requestid, String Action_Date4) {
         this.ClaimID = ClaimID;
         this.InvoiceNum = InvoiceNum;
         this.Status = Status;
@@ -63,6 +64,7 @@ public class Claim {
         this.lastupdated_by = lastupdated_by;
         this.lastupdate = lastupdate;
         this.requestid = requestid;
+        this.Action_Date4 = Action_Date4;
 
 
 
@@ -184,4 +186,7 @@ public class Claim {
         return requestid;
     }
 
+    public String getAction_Date4() {
+        return Action_Date4;
+    }
 }

@@ -166,7 +166,8 @@ public class PendingClaims extends AppCompatActivity {
                                         product.getString("approval_level"),
                                         product.getString("lastupdated_by"),
                                         product.getString("lastupdate"),
-                                        product.getInt("request_id")
+                                        product.getInt("request_id"),
+                                        product.getString("Action_Date4")
                                 ));
 
 

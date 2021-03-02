@@ -48,7 +48,7 @@ public class RejectedAdapter extends RecyclerView.Adapter<RejectedAdapter.ClaimV
         holder.textClaim.setText(claim.getClaimNum());
         holder.textInvoice.setText("Invoice No: " + claim.getInvoiceNum());
         holder.textAmount.setText(String.valueOf("€" + claim.getamount()));
-        holder.textOffer.setText(String.valueOf("Offer Code: " +claim.getoffercode()));
+        holder.textOffer.setText(String.valueOf("Action Date: " +claim.getAction_Date4()));
         holder.textCustomer.setText(String.valueOf(claim.getCus_Name()));
     }
 

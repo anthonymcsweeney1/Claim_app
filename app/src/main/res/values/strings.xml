@@ -14,14 +14,14 @@
     <string name="slide_text">Slide Text</string>
 
     // On Boarding slides
-    <string name="welcome_slide">Prepare to approve Claims</string>
-    <string name="first_slide">See all Claims that need your action</string>
-    <string name="second_slide">View all the Claim Details</string>
-    <string name="third_slide">Have a look at the Invoice</string>
-    <string name="welcome_desc">Easily approve and reject pending claims by a click of a button on the go.</string>
+    <string name="welcome_slide">Prepare to approve Claims on the go</string>
+    <string name="first_slide">See all Claims that need your approval</string>
+    <string name="second_slide">View all the required Claim Details</string>
+    <string name="third_slide">View the Claim Invoice on the app</string>
+    <string name="welcome_desc">Easily approve or reject claims with a simple click of a button.</string>
     <string name="first_slide_desc">All Claims that have been assigned to you will appear in your work list.</string>
-    <string name="second_slide_desc">Once on the claim, you can view all its details such as amount, date, customer, etc.</string>
-    <string name="third_slide_desc">Need to view the invoice then simply click the link.</string>
+    <string name="second_slide_desc">Once on the selected claim, you can view all its details such as amount, date, customer, etc.</string>
+    <string name="third_slide_desc">Easy download ans view the Invoice on the app.</string>
 
 
     // Login
@@ -99,9 +99,9 @@
     <string name="rejected_claims">Rejected Claims</string>
     <string name="charts">Charts</string>
     <string name="check_your_bank_activities">Check your bank activities</string>
-    <string name="see_the_claims_you_approved">See the Claims you Approved</string>
+    <string name="see_the_claims_you_approved">See the Claims you Approved this month</string>
     <string name="next">Next</string>
-    <string name="see_the_claims_you_rejected">See the claims you rejected</string>
+    <string name="see_the_claims_you_rejected">See the claims you rejected this month</string>
     <string name="view_claim_analyst_comment">View Claim Analyst Comment</string>
     <string name="add_new_comment">Add new Comment</string>
 

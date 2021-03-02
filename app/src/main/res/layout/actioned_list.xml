@@ -47,7 +47,7 @@
             android:layout_height="wrap_content"
             android:layout_alignBottom="@+id/textInvoice"
             android:layout_marginStart="102dp"
-            android:layout_marginBottom="-43dp"
+            android:layout_marginBottom="-53dp"
             android:layout_toEndOf="@+id/textClaimNum"
             android:text="@string/text_offer"
             android:textAlignment="viewEnd"

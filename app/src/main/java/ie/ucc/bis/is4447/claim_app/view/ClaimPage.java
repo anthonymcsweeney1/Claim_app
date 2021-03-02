@@ -208,10 +208,8 @@ System.out.println(levelcheck);
 
 
         btnApprove.setOnClickListener(new View.OnClickListener() {
-
-            String ClaimID = tvClaimID.getText().toString();
-            String ClaimNum = tvClaimNum.getText().toString();
-
+            String stClaimID = tvClaimID.getText().toString();
+            String stClaimNum = tvClaimNum.getText().toString();
 
             @Override
             public void onClick(View v) {
@@ -236,8 +234,8 @@ System.out.println(levelcheck);
 
                         Map<String, String> params = new HashMap<>();
 
-                        params.put("ClaimID", ClaimID);
-                        params.put("ClaimNum", ClaimNum);
+                        params.put("ClaimID", stClaimID);
+                        params.put("ClaimNum", stClaimNum);
 
 
 
