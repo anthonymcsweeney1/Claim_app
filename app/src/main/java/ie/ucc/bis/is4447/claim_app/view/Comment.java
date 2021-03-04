@@ -63,7 +63,7 @@ public class Comment extends AppCompatActivity {
                         startActivity(new Intent(getApplicationContext(),ClaimPage.class));
                         overridePendingTransition(0,0);
                         Intent CommentIntent = new Intent(Comment.this, ClaimPage.class);
-                        CommentIntent.putExtra("notes", notes);
+                        CommentIntent.putExtra("ClaimID", ClaimID);
                         CommentIntent.putExtra("ClaimNum", ClaimNum);
                         CommentIntent.putExtra("InvoiceNum", InvoiceNum);
                         CommentIntent.putExtra("amount", amount);
@@ -89,7 +89,7 @@ public class Comment extends AppCompatActivity {
                         startActivity(new Intent(getApplicationContext(),InvoicePage.class));
                         overridePendingTransition(0,0);
                         Intent ImageIntent = new Intent(Comment.this, InvoicePage.class);
-                        ImageIntent.putExtra("notes", notes);
+                        ImageIntent.putExtra("ClaimID", ClaimID);
                         ImageIntent.putExtra("ClaimNum", ClaimNum);
                         ImageIntent.putExtra("InvoiceNum", InvoiceNum);
                         ImageIntent.putExtra("amount", amount);
@@ -126,7 +126,7 @@ public class Comment extends AppCompatActivity {
         notes = getIntent().getStringExtra("notes");
         tvPastComment.setText(notes);
 
-
+        ClaimID= getIntent().getStringExtra("ClaimID");
         ClaimNum = getIntent().getStringExtra("ClaimNum");
         InvoiceNum = getIntent().getStringExtra("InvoiceNum");
         offercode = getIntent().getStringExtra("offercode");

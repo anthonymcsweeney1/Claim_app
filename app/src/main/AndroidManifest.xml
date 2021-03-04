@@ -16,7 +16,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.MaterialComponents.Light.NoActionBar.Bridge">
-        <activity android:name=".helper.Connection"></activity>
+        <activity android:name=".helper.Connection">
+
+        </activity>
+
         <activity
             android:name=".view.Rejected"
             android:label="My Rejected Claims"

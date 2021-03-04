@@ -74,6 +74,7 @@ public class InvoicePage extends AppCompatActivity {
                         startActivity(new Intent(getApplicationContext(),ClaimPage.class));
                         overridePendingTransition(0,0);
                         Intent myIntent = new Intent(InvoicePage.this, ClaimPage.class);
+                        myIntent.putExtra("ClaimID", ClaimID);
                         myIntent.putExtra("ClaimNum", ClaimNum);
                         myIntent.putExtra("InvoiceNum", InvoiceNum);
                         myIntent.putExtra("amount", amount);
@@ -100,7 +101,7 @@ public class InvoicePage extends AppCompatActivity {
                         startActivity(new Intent(getApplicationContext(),Comment.class));
                         overridePendingTransition(0,0);
                         Intent CommentIntent = new Intent(InvoicePage.this, Comment.class);
-                        CommentIntent.putExtra("notes", notes);
+                        CommentIntent.putExtra("ClaimID", ClaimID);
                         CommentIntent.putExtra("ClaimNum", ClaimNum);
                         CommentIntent.putExtra("InvoiceNum", InvoiceNum);
                         CommentIntent.putExtra("amount", amount);
@@ -130,7 +131,7 @@ public class InvoicePage extends AppCompatActivity {
 
 
 
-
+        ClaimID = getIntent().getStringExtra("ClaimID");
         ClaimNum = getIntent().getStringExtra("ClaimNum");
         InvoiceNum = getIntent().getStringExtra("InvoiceNum");
         offercode = getIntent().getStringExtra("offercode");

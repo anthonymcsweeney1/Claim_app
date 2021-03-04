@@ -6,6 +6,7 @@
         <item name="colorPrimary">@color/bar</item>
         <item name="titleTextColor">@color/second</item>
 
+
     </style>
     // Bottom Nav theme
     <style name="BottomNavigationTheme" parent="Theme.AppCompat.Light">

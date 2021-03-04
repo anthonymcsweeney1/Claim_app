@@ -5,8 +5,8 @@
         android:icon="@drawable/home"
         android:id="@+id/item_home"/>
 
-    <item android:title="Pending Approval"
-        android:icon="@drawable/pending"
+    <item android:title="Settings"
+        android:icon="@drawable/settings"
         android:id="@+id/item_pending"/>
 
     <item android:title="Log out"

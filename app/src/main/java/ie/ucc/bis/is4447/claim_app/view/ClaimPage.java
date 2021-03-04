@@ -289,7 +289,6 @@ System.out.println(levelcheck);
                 RequestQueue requestQueue = Volley.newRequestQueue(ClaimPage.this);
                 requestQueue.add(request);
 
-
             }
         });
 
