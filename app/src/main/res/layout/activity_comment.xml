@@ -22,12 +22,12 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <TextView
-            android:layout_width="310dp"
-            android:layout_height="wrap_content"
+            android:layout_width="364dp"
+            android:layout_height="46dp"
             android:layout_marginTop="15dp"
             android:fontFamily="@font/allerta"
             android:text="@string/view_claim_analyst_comment"
-            android:textAlignment="center"
+            android:textAlignment="viewStart"
             android:textAllCaps="false"
             android:textColor="@color/second"
             android:textSize="18sp"
@@ -66,12 +66,12 @@
                 android:layout_marginTop="20dp">
 
                 <TextView
-                    android:layout_width="233dp"
-                    android:layout_height="39dp"
+                    android:layout_width="380dp"
+                    android:layout_height="60dp"
                     android:layout_marginTop="20dp"
                     android:fontFamily="@font/allerta"
                     android:text="@string/add_new_comment"
-                    android:textAlignment="center"
+                    android:textAlignment="viewStart"
                     android:textAllCaps="false"
                     android:textColor="@color/second"
                     android:textSize="18sp"

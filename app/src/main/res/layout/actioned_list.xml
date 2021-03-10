@@ -85,7 +85,7 @@
             android:layout_below="@+id/textClaimNum"
             android:layout_marginTop="17dp"
             android:background="@color/success"
-            android:text="Approved"
+            android:text="@string/Approved"
             android:textColor="@color/white" />
 
     </RelativeLayout>

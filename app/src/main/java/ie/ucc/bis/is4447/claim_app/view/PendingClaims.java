@@ -96,8 +96,6 @@ public class PendingClaims extends AppCompatActivity {
                 //initializing the claimList
                 claimList = new ArrayList<>();
 
-                InBackgroundClass myClass = new InBackgroundClass(PendingClaims.this);
-                myClass.execute("https://vendorcentral.000webhostapp.com/ApiClaim.php?approveremail=" + mEmail);
 
                 loadProducts();
             }

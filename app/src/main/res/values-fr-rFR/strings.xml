@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Claim_app</string>
+
+    <string name="claim_app">Claim Approval App</string>
+    <string name="language">Français</string>
+    <string name="current_language">Français</string>
+
+    // SplashScreen
+    <string name="loading">Loading</string>
+
+    // On Boarding
+    <string name="skip_btn">Skip</string>
+    <string name="lets_get_started">LETS GET APPROLAISSONS OBTENIR L\'APPROBATIONVING</string>
+    <string name="header">Header</string>
+    <string name="sliderimage">SliderImage</string>
+    <string name="slide_text">Slide Text</string>
+
+    // On Boarding slides
+    <string name="welcome_slide">Ullmhaigh chun Éilimh a cheadú</string>
+    <string name="first_slide">Voir toutes les réclamations qui nécessitent votre approbation</string>
+    <string name="second_slide">Afficher tous les détails de réclamation requis</string>
+    <string name="third_slide">Afficher la facture de réclamation sur l\'application</string>
+    <string name="welcome_desc">Approuvez ou rejetez facilement les réclamations d\'un simple clic sur un bouton.</string>
+    <string name="first_slide_desc">Toutes les réclamations qui vous ont été attribuées apparaîtront dans votre liste de travail.</string>
+    <string name="second_slide_desc">Une fois sur la réclamation sélectionnée, vous pouvez voir tous ses détails tels que le montant, la date, le client, etc.</string>
+    <string name="third_slide_desc">Téléchargez et visualisez facilement la facture sur l\'application.</string>
+
+
+    // Login
+    <string name="login">TechGuys</string>
+    <string name="loginbutton">Logáil isteach</string>
+    <string name="enter_username">Saisissez votre nom d\'utilisateur</string>
+    <string name="enter_password">Entrer le mot de passe</string>
+    <string name="remember_me">Souviens-toi de moi</string>
+    <string name="forget_password">Mot de passe oublié?</string>
+    <string name="validation">Invalide</string>
+    <string name="test_connection">Testez votre connexion</string>
+    <string name="view_all">Afficher les réclamations en attente</string>
+    <string name="past">Approbations antérieures</string>
+
+    // Expense page
+    <string name="msg_no_results">Aucune réclamation à approuver</string>
+    <string name="lbl_new_expense_title">New Expense</string>
+    <string name="hint_enter_note">Enter your expense</string>
+    <string name="lbl_edit_expense_title">Edit expense</string>
+    <string name="filter">Filter</string>
+    <string name="amount">Quantité</string>
+    <string name="customer">Client</string>
+    <string name="description">Description</string>
+    <string name="claim">Prétendre</string>
+    <string name="update">Mettre à jour</string>
+    <string name="delete">Effacer</string>
+    <string name="add">Cuir leis</string>
+
+
+    <string name="play_again">Démarrez le spectacle</string>
+    <string name="currency">€</string>
+    <string name="logo">Logo</string>
+    <string name="photo">photo</string>
+    <string name="Sess">Bonjour</string>
+    <string name="Check">vérifions si vous avez des réclamations à approuver aujourd\'hui</string>
+    <string name="date">Date</string>
+    <string name="claimicon">Claimicon</string>
+    <string name="dateicon">Dateicon</string>
+    <string name="customericon">CustomerIcon</string>
+    <string name="approve">Approuver</string>
+    <string name="reject">Rejeter</string>
+    <string name="text_amount">234.87</string>
+    <string name="text_claim">CLA34</string>
+    <string name="text_offer">EMEA7582356SIA</string>
+    <string name="text_invoice">45986</string>
+    <string name="text_customer">Amazon</string>
+
+
+    <string name="action_settings">Réglages</string>
+    <string name="file_view">Voir la facture</string>
+    <string name="file_download">Télécharger la facture</string>
+    <string name="file_request">Demander à nouveau l\'accès</string>
+    <string name="customer_name">Nom du client</string>
+    <string name="request_id">Iarr ID</string>
+    <string name="claim_number">Numéro de réclamation</string>
+    <string name="invoice_number">Invoice Number</string>
+    <string name="offer_code">Code d\'offre</string>
+    <string name="claim_date">Date de la réclamation</string>
+    <string name="currencytext">Devise</string>
+    <string name="overage">Excédent</string>
+    <string name="total_amount">Montant total</string>
+    <string name="textview">TextView</string>
+    <string name="customer_reference_date">Date de référence client</string>
+    <string name="settlement_method">Méthode de règlement</string>
+    <string name="claim_type">Type de réclamation</string>
+    <string name="bill_to">Facturer à</string>
+    <string name="bill_to_account">Facturer au compte</string>
+    <string name="ship_to">Expédier à</string>
+    <string name="ship_to_account">Expédier au compte</string>
+    <string name="from">De</string>
+    <string name="nextapprove">Approuver au niveau suivant</string>
+    <string name="view_claims_that_are_pending_your_approval">Afficher les revendications en attente de votre approbation</string>
+    <string name="pending_claims">Réclamations en attente</string>
+    <string name="approved_claims">Réclamations approuvées</string>
+    <string name="rejected_claims">Rejet des réclamations</string>
+    <string name="openin">Ouvrir en français</string>
+    <string name="see_the_claims_you_approved">Voir les réclamations que vous avez approuvées ce mois-ci</string>
+    <string name="next">Suivant</string>
+    <string name="see_the_claims_you_rejected">Féach na héilimh a dhiúltaigh tú an mhí seo</string>
+    <string name="view_claim_analyst_comment">Afficher le commentaire de l\'analyste des réclamations</string>
+    <string name="add_new_comment">Ajouter un nouveau commentaire</string>
+    <string name="Home">Inicio</string>
+    <string name="Setting">Paramètres</string>
+    <string name="Logout">Déconnexion</string>
+    <string name="pending_approval">En attente de validation</string>
+    <string name="Approved">Approuvé</string>
+    <string name="Rejected">Rejeté</string>
+
+</resources>

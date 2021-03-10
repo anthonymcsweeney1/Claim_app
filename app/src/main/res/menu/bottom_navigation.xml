@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     //bottom nav items and icons
-    <item android:title="Home"
+    <item android:title="@string/Home"
         android:icon="@drawable/home"
         android:id="@+id/item_home"/>
 
-    <item android:title="Settings"
+    <item android:title="@string/Setting"
         android:icon="@drawable/settings"
         android:id="@+id/item_pending"/>
 
-    <item android:title="Log out"
+    <item android:title="@string/Logout"
         android:icon="@drawable/logout"
         android:id="@+id/item_logout"/>
 

@@ -34,6 +34,7 @@ public class ClaimAdapter extends RecyclerView.Adapter<ClaimAdapter.ClaimViewHol
     // animation for recycler view
     Animation recycle_anim;
 
+
     private static final String TAG = "MyActivity";
 
 
@@ -47,6 +48,8 @@ public class ClaimAdapter extends RecyclerView.Adapter<ClaimAdapter.ClaimViewHol
     public ClaimViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         LayoutInflater inflater = LayoutInflater.from(mCtx);
         View view = inflater.inflate(R.layout.claim_list, null);
+
+
         return new ClaimViewHolder(view);
     }
 

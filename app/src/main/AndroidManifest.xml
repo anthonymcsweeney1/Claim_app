@@ -16,10 +16,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.MaterialComponents.Light.NoActionBar.Bridge">
-        <activity android:name=".helper.Connection">
-
-        </activity>
-
+        <activity android:name=".view.Language"></activity>
+        <activity android:name=".helper.Connection" />
         <activity
             android:name=".view.Rejected"
             android:label="My Rejected Claims"
@@ -36,16 +34,13 @@
                 android:resource="@xml/external_files" />
         </provider>
 
-        <activity android:name=".view.Comment"
-
-            />
-
-        <activity android:name=".view.InvoicePage"
+        <activity android:name=".view.Comment" />
+        <activity
+            android:name=".view.InvoicePage"
             android:label="Claim Page"
             android:parentActivityName=".view.PendingClaims"
             android:theme="@style/AppTheme" />
-
-        <activity android:name=".view.UserLoginActivity"/>
+        <activity android:name=".view.UserLoginActivity" />
         <activity
             android:name=".view.Approve"
             android:label="My Approved Claims"
@@ -60,8 +55,7 @@
             android:name=".view.PendingClaims"
             android:label="Claims to Approve"
             android:parentActivityName=".view.Dashboard"
-            android:theme="@style/AppTheme"/>
-
+            android:theme="@style/AppTheme" />
         <activity android:name=".view.Dashboard">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -69,11 +63,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
         <activity android:name=".view.OnBoarding" />
-        <activity android:name=".view.SplashScreen">
-
-    </activity>
+        <activity android:name=".view.SplashScreen"></activity>
 
         <meta-data
             android:name="preloaded_fonts"

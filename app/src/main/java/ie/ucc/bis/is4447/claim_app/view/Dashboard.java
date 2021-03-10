@@ -34,11 +34,13 @@ import org.json.JSONObject;
 
 import java.util.HashMap;
 
+import butterknife.ButterKnife;
 import ie.ucc.bis.is4447.claim_app.R;
 import ie.ucc.bis.is4447.claim_app.helper.ActionedAdapter;
 import ie.ucc.bis.is4447.claim_app.helper.Claim;
 import ie.ucc.bis.is4447.claim_app.helper.Connection;
 import ie.ucc.bis.is4447.claim_app.helper.SessionManager;
+import butterknife.ButterKnife;
 
 public class Dashboard extends AppCompatActivity implements View.OnClickListener{
 
@@ -56,6 +58,7 @@ public class Dashboard extends AppCompatActivity implements View.OnClickListener
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dashboard);
 
+        ButterKnife.bind(this);
 
         sessionManager = new SessionManager(this);
         sessionManager.checkLogin();
@@ -88,7 +91,7 @@ public class Dashboard extends AppCompatActivity implements View.OnClickListener
                     case R.id.item_home:
                         return true;
                     case R.id.item_pending:
-                        startActivity(new Intent(getApplicationContext(),OnBoarding.class));
+                        startActivity(new Intent(getApplicationContext(),Language.class));
                         overridePendingTransition(0,0);
                         return true;
                     case R.id.item_logout:
@@ -201,7 +204,7 @@ public class Dashboard extends AppCompatActivity implements View.OnClickListener
                     @Override
                     public void onResponse(String response) {
                         Log.d(TAG, response);
-                        email.setText( "Hello " +response);
+                        email.setText( "Hello " + response);
                     }
                 },
                 new Response.ErrorListener() {

@@ -85,7 +85,7 @@
             android:layout_below="@+id/textClaimNum"
             android:layout_marginTop="17dp"
             android:background="@color/info"
-            android:text="Pending Approval"
+            android:text="@string/pending_approval"
             android:textColor="@color/white" />
 
     </RelativeLayout>

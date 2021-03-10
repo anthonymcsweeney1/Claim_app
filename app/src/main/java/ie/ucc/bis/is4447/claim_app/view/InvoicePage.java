@@ -210,7 +210,7 @@ public class InvoicePage extends AppCompatActivity {
         } else {
             Log.v(TAG, "download() Method HAVE PERMISSIONS ");
 
-            //new DownloadFile().execute("http://maven.apache.org/maven-1.x/maven.pdf", "maven.pdf");
+
             new DownloadFile().execute("https://vendorcentral.000webhostapp.com/downloads.php?file_id="+InvoiceNum, "Claim "+ClaimNum+".pdf");
 
         }
