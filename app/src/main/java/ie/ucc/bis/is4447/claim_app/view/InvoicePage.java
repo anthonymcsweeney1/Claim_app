@@ -225,8 +225,8 @@ public class InvoicePage extends AppCompatActivity {
         protected Void doInBackground(String... strings) {
             Log.v(TAG, "doInBackground() Method invoked ");
 
-            String fileUrl = strings[0];   // -> http://maven.apache.org/maven-1.x/maven.pdf
-            String fileName = strings[1];  // -> maven.pdf
+            String fileUrl = strings[0];
+            String fileName = strings[1];
             String extStorageDirectory = Environment.getExternalStorageDirectory().toString();
             File folder = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS);
 

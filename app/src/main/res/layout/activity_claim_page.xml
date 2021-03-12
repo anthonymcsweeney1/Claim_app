@@ -173,10 +173,10 @@ xmlns:app="http://schemas.android.com/apk/res-auto">
             android:layout_width="match_parent"
             android:layout_height="250dp"
             android:layout_gravity="center"
-            app:cardCornerRadius="5dp"
-            android:layout_marginBottom="5dp"
             android:layout_marginLeft="5dp"
-            android:layout_marginRight="5dp">
+            android:layout_marginRight="5dp"
+            android:layout_marginBottom="5dp"
+            app:cardCornerRadius="5dp">
 
             <TextView
                 android:id="@+id/lb_Currency"
@@ -197,10 +197,10 @@ xmlns:app="http://schemas.android.com/apk/res-auto">
 
             <TextView
                 android:id="@+id/lb_Overage"
-                android:layout_marginStart="30dp"
-                android:layout_marginTop="50dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="30dp"
+                android:layout_marginTop="50dp"
                 android:text="@string/overage" />
 
             <TextView
@@ -211,12 +211,13 @@ xmlns:app="http://schemas.android.com/apk/res-auto">
                 android:layout_marginTop="70dp"
                 android:text="@string/textview"
                 android:textColor="@color/black" />
+
             <TextView
                 android:id="@+id/lb_Amount"
-                android:layout_marginStart="30dp"
-                android:layout_marginTop="95dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="30dp"
+                android:layout_marginTop="95dp"
                 android:text="@string/total_amount" />
 
             <TextView
@@ -226,14 +227,14 @@ xmlns:app="http://schemas.android.com/apk/res-auto">
                 android:layout_marginStart="30dp"
                 android:layout_marginTop="115dp"
                 android:text="@string/textview"
-                android:textColor="@color/black"
-                />
+                android:textColor="@color/black" />
+
             <TextView
                 android:id="@+id/lb_Cus_Date"
-                android:layout_marginStart="30dp"
-                android:layout_marginTop="140dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="30dp"
+                android:layout_marginTop="140dp"
                 android:text="@string/customer_reference_date" />
 
             <TextView
@@ -244,12 +245,13 @@ xmlns:app="http://schemas.android.com/apk/res-auto">
                 android:layout_marginTop="160dp"
                 android:text="@string/textview"
                 android:textColor="@color/black" />
+
             <TextView
                 android:id="@+id/lb_Settlement"
-                android:layout_marginStart="30dp"
-                android:layout_marginTop="185dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="30dp"
+                android:layout_marginTop="185dp"
                 android:text="@string/settlement_method" />
 
             <TextView
@@ -260,12 +262,13 @@ xmlns:app="http://schemas.android.com/apk/res-auto">
                 android:layout_marginTop="205dp"
                 android:text="@string/textview"
                 android:textColor="@color/black" />
+
             <TextView
                 android:id="@+id/lb_Type"
-                android:layout_marginStart="210dp"
-                android:layout_marginTop="185dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="210dp"
+                android:layout_marginTop="185dp"
                 android:text="@string/claim_type" />
 
             <TextView
@@ -278,6 +281,7 @@ xmlns:app="http://schemas.android.com/apk/res-auto">
                 android:textColor="@color/black" />
 
         </androidx.cardview.widget.CardView>
+
         <androidx.cardview.widget.CardView
 
             android:id="@+id/card_view2"
