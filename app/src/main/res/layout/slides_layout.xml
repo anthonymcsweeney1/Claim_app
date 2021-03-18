@@ -43,7 +43,7 @@
         android:gravity="center"
         android:inputType="textMultiLine"
         android:text="@string/slide_text"
-        android:textColor="@color/design_default_color_on_secondary"
+        android:textColor="@color/nav_bar"
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

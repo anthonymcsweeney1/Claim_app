@@ -106,9 +106,18 @@
     <string name="view_claim_analyst_comment">View Claim Analyst Comment</string>
     <string name="add_new_comment">Add new Comment</string>
     <string name="Home">Home</string>
-    <string name="Setting">Setting</string>
+    <string name="Language">Language</string>
     <string name="Logout">Logout</string>
     <string name="pending_approval">Pending Approval</string>
     <string name="Approved">Approved</string>
     <string name="Rejected">Rejected</string>
+    <string name="Invoice">Invoice</string>
+    <string name="Details">Details</string>
+    <string name="Comment">Comment</string>
+    <string name="ClaimPage">Claim Page</string>
+    <string name="InvoicePage">Invoice Page</string>
+    <string name="ClaimstoApprove">Claims to Approve</string>
+    <string name="MyApprove">My Approve</string>
+    <string name="MyReject">My Reject</string>
+    <string name="Hello">Hello</string>
 </resources>

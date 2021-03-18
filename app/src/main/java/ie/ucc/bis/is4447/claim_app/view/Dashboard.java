@@ -90,8 +90,8 @@ public class Dashboard extends AppCompatActivity implements View.OnClickListener
                 switch (item.getItemId()){
                     case R.id.item_home:
                         return true;
-                    case R.id.item_pending:
-                        startActivity(new Intent(getApplicationContext(),OnBoarding.class));
+                    case R.id.item_language:
+                        startActivity(new Intent(getApplicationContext(),Language.class));
                         overridePendingTransition(0,0);
                         return true;
                     case R.id.item_logout:
@@ -204,7 +204,8 @@ public class Dashboard extends AppCompatActivity implements View.OnClickListener
                     @Override
                     public void onResponse(String response) {
                         Log.d(TAG, response);
-                        email.setText( "Hello " + response);
+                        email.setText(getResources().getString(R.string.Hello)+" "+ response);
+
                     }
                 },
                 new Response.ErrorListener() {

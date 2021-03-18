@@ -91,9 +91,18 @@
     <string name="view_claim_analyst_comment">Ver comentario de la analista de reclamaciones</string>
     <string name="add_new_comment">Agregar nuevo comentario</string>
     <string name="Home">Inicio</string>
-    <string name="Setting">Configuración</string>
+    <string name="Language">Idioma</string>
     <string name="Logout">Cerrar sesión</string>
     <string name="pending_approval">Aprobación pendiente</string>
     <string name="Approved">Aprobado</string>
     <string name="Rejected">Rechazado</string>
+    <string name="Invoice">Factura</string>
+    <string name="Details">Detalles</string>
+    <string name="Comment">Comentario</string>
+    <string name="ClaimPage">Página de reclamo</string>
+    <string name="InvoicePage">Página de factura</string>
+    <string name="ClaimstoApprove">Reclamaciones para aprobar</string>
+    <string name="MyApprove">Mis reclamaciones aprobadas</string>
+    <string name="MyReject">Mis reclamaciones de rechazo</string>
+    <string name="Hello">Hola</string>
 </resources>

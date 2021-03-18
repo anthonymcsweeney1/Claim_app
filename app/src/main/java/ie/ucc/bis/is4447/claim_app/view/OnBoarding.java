@@ -102,15 +102,15 @@ public class OnBoarding extends AppCompatActivity {
                 Log.d(TAG, "Welcome slide is visible");
             } else if (position == 1) {
                 letsGetStarted.setVisibility(View.INVISIBLE);
-                Log.d(TAG, "Saving slide is visible");
+                Log.d(TAG, "Approval slide is visible");
             } else if (position == 2) {
                 letsGetStarted.setVisibility(View.INVISIBLE);
-                Log.d(TAG, "Tracking slide is visible");
+                    Log.d(TAG, "Claim slide is visible");
             } else if (position == 3) {
                 animation = AnimationUtils.loadAnimation(OnBoarding.this,R.anim.boarding_animation);
                 letsGetStarted.setAnimation(animation);
                 letsGetStarted.setVisibility(View.VISIBLE);
-                Log.d(TAG, "Last slide is visible");
+                Log.d(TAG, "Invoice slide is visible");
             }
         }
         @Override

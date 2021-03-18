@@ -107,10 +107,18 @@
     <string name="view_claim_analyst_comment">Afficher le commentaire de l\'analyste des réclamations</string>
     <string name="add_new_comment">Ajouter un nouveau commentaire</string>
     <string name="Home">Inicio</string>
-    <string name="Setting">Paramètres</string>
+    <string name="Language">Langue</string>
     <string name="Logout">Déconnexion</string>
-    <string name="pending_approval">En attente de validation</string>
+    <string name="pending_approval">Attente de validation</string>
     <string name="Approved">Approuvé</string>
     <string name="Rejected">Rejeté</string>
-
+    <string name="Invoice">Facture</string>
+    <string name="Details">Des détails</string>
+    <string name="Comment">Commenter</string>
+    <string name="ClaimPage">Leathanach Éilimh</string>
+    <string name="InvoicePage">Page de facturation</string>
+    <string name="ClaimstoApprove">Revendications de approuver</string>
+    <string name="MyApprove">Mes réclamations approuvées</string>
+    <string name="MyReject">Mes demandes de rejet</string>
+    <string name="Hello">Bonjour</string>
 </resources>
