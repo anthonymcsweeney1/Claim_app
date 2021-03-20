@@ -112,7 +112,7 @@ public class Dashboard extends AppCompatActivity implements View.OnClickListener
         Intent i;
 
         switch (v.getId()) {
-        case R.id.cardPending : i = new Intent (this, PendingClaims.class); startActivity(i); break;
+        case R.id.cardPending : i = new Intent (this, ClaimList.class); startActivity(i); break;
         case R.id.cardApproved : i = new Intent (this, Approve.class); startActivity(i); break;
             case R.id.cardRejected : i = new Intent (this, Rejected.class); startActivity(i); break;
 

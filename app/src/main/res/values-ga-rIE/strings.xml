@@ -96,4 +96,13 @@
     <string name="pending_approval">Le ceadú</string>
     <string name="Approved">Ceadaithe</string>
     <string name="Rejected">Diúltaithe</string>
+    <string name="Invoice">Sonrasc</string>
+    <string name="Details">Sonraí</string>
+    <string name="Comment">Tráchtaireacht</string>
+    <string name="ClaimPage">Leathanach Éilimh</string>
+    <string name="InvoicePage">Leathanach Sonraisc</string>
+    <string name="ClaimstoApprove">Éilimh ar Cheadú</string>
+    <string name="MyApprove">Mo Cheadú</string>
+    <string name="MyReject">Mo Dhiúltaigh</string>
+    <string name="Hello">Dia dhuit</string>
 </resources>

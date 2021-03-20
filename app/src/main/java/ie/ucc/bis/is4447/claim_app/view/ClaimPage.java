@@ -219,7 +219,7 @@ System.out.println(levelcheck);
                     @Override
                     public void onResponse(String response) {
                         Toast.makeText(ClaimPage.this, response, Toast.LENGTH_SHORT).show();
-                        Intent intent = new Intent(ClaimPage.this, PendingClaims.class);
+                        Intent intent = new Intent(ClaimPage.this, ClaimList.class);
                         startActivity(intent);
                     }
                 }, new Response.ErrorListener() {
@@ -244,7 +244,7 @@ System.out.println(levelcheck);
                 };
 
                 progressDialog.dismiss();
-                startActivity(new Intent(ClaimPage.this, PendingClaims.class));
+                startActivity(new Intent(ClaimPage.this, ClaimList.class));
                 RequestQueue requestQueue = Volley.newRequestQueue(ClaimPage.this);
                 requestQueue.add(request);
             }
@@ -264,7 +264,7 @@ System.out.println(levelcheck);
                     @Override
                     public void onResponse(String response) {
                         Toast.makeText(ClaimPage.this, response, Toast.LENGTH_SHORT).show();
-                        Intent intent = new Intent(ClaimPage.this, PendingClaims.class);
+                        Intent intent = new Intent(ClaimPage.this, ClaimList.class);
                         startActivity(intent);
                     }
                 }, new Response.ErrorListener() {
@@ -305,7 +305,7 @@ System.out.println(levelcheck);
                     @Override
                     public void onResponse(String response) {
                         Toast.makeText(ClaimPage.this, response, Toast.LENGTH_SHORT).show();
-                        Intent intent = new Intent(ClaimPage.this, PendingClaims.class);
+                        Intent intent = new Intent(ClaimPage.this, ClaimList.class);
                         startActivity(intent);
                     }
                 }, new Response.ErrorListener() {

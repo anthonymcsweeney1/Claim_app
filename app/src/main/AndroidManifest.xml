@@ -20,7 +20,7 @@
         <activity android:name=".helper.Connection" />
         <activity
             android:name=".view.Rejected"
-            android:label="My Rejected Claims"
+            android:label="@string/MyReject"
             android:parentActivityName=".view.Dashboard"
             android:theme="@style/AppTheme" />
 
@@ -37,13 +37,13 @@
         <activity android:name=".view.Comment" />
         <activity
             android:name=".view.InvoicePage"
-            android:label="Claim Page"
+            android:label="@string/InvoicePage"
             android:parentActivityName=".view.PendingClaims"
             android:theme="@style/AppTheme" />
         <activity android:name=".view.UserLoginActivity" />
         <activity
             android:name=".view.Approve"
-            android:label="My Approved Claims"
+            android:label="@string/MyApprove"
             android:parentActivityName=".view.Dashboard"
             android:theme="@style/AppTheme" />
         <activity
@@ -53,19 +53,22 @@
             android:theme="@style/AppTheme" />
         <activity
             android:name=".view.PendingClaims"
-            android:label="Claims to Approve"
+            android:label="@string/pending_claims"
             android:parentActivityName=".view.Dashboard"
             android:theme="@style/AppTheme" />
         <activity android:name=".view.Dashboard">
-
-        </activity>
-        <activity android:name=".view.OnBoarding" />
-        <activity android:name=".view.SplashScreen">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+        <activity android:name=".view.OnBoarding" />
+        <activity android:name=".view.SplashScreen">
+
+        </activity>
+        <activity android:name=".view.ClaimList">
+
         </activity>
 
         <meta-data
