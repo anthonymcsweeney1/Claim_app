@@ -12,6 +12,9 @@ import android.view.View;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+//https://www.androidhive.info/2017/11/android-recyclerview-with-search-filter-functionality/
+// Recyclerview divider code used from online tutorial
+
 public class MyDividerItemDecoration extends RecyclerView.ItemDecoration {
 
     private static final int[] ATTRS = new int[]{

@@ -1,4 +1,5 @@
 package ie.ucc.bis.is4447.claim_app.view;
+
 // Modified code to approve/reject claims
 //https://www.youtube.com/watch?v=pLM_Fz8Plbg
 
@@ -168,7 +169,7 @@ System.out.println(levelcheck);
 
         Log.v(TAG, String.valueOf(d));
 
-
+// if conditions to display the correct approve button based on overage and approval level
         if (iLevel == 1) {
             Log.v(TAG, "Level 1");
             if (d < 500) {

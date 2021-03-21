@@ -78,13 +78,7 @@ public class Approve extends AppCompatActivity {
 
     private void loadProducts() {
 
-        /*
-         * Creating a String Request
-         * The request type is GET defined by first parameter
-         * The URL is defined in the second parameter
-         * Then we have a Response Listener and a Error Listener
-         * In response listener we will get the JSON response as a String
-         * */
+
         StringRequest stringRequest = new StringRequest(Request.Method.GET, "https://vendorcentral.000webhostapp.com/ApiClaimApproved.php?approveremail=" + mEmail,
                 new Response.Listener<String>() {
                     @Override

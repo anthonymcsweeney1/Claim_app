@@ -1,5 +1,7 @@
 package ie.ucc.bis.is4447.claim_app.view;
 
+//Modified code from IS4448 lecture and tutorial
+
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;

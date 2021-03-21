@@ -1,4 +1,5 @@
 package ie.ucc.bis.is4447.claim_app.helper;
+
 // code modified from youtube tutorial
 //https://www.youtube.com/watch?v=bBJo0Gj69Ug
 import android.content.Context;

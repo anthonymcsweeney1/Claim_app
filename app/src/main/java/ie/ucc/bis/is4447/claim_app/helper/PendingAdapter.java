@@ -1,5 +1,8 @@
 package ie.ucc.bis.is4447.claim_app.helper;
 
+//https://www.androidhive.info/2017/11/android-recyclerview-with-search-filter-functionality/
+// Online tutorial code to filter the recyclerview
+
 import android.content.Context;
 import android.content.Intent;
 import android.util.Log;

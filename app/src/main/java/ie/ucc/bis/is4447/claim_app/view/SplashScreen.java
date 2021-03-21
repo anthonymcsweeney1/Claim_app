@@ -1,4 +1,5 @@
 package ie.ucc.bis.is4447.claim_app.view;
+//Code used from my IS4447 CA2 project
 
 import androidx.appcompat.app.AppCompatActivity;
 

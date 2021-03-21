@@ -1,5 +1,7 @@
 package ie.ucc.bis.is4447.claim_app.helper;
 
+//Modified code from IS4448 lecture and tutorial
+
 import android.content.Context;
 import android.content.res.Configuration;
 import android.content.res.Resources;

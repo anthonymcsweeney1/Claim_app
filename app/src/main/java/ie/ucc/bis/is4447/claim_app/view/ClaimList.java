@@ -48,6 +48,8 @@ import ie.ucc.bis.is4447.claim_app.helper.MyDividerItemDecoration;
 import ie.ucc.bis.is4447.claim_app.helper.PendingAdapter;
 import ie.ucc.bis.is4447.claim_app.helper.SessionManager;
 
+//https://www.androidhive.info/2017/11/android-recyclerview-with-search-filter-functionality/
+
 public class ClaimList extends AppCompatActivity implements PendingAdapter.ClaimAdapterListener{
 
     SessionManager sessionManager;

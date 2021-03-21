@@ -10,6 +10,8 @@ import java.net.URL;
 import java.net.URLEncoder;
 import java.util.HashMap;
 import java.util.Map;
+
+//Modified code to post to MySQL database
 //https://www.simplifiedcoding.net/retrieve-data-mysql-database-android/
 
 

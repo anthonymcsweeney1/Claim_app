@@ -1,4 +1,5 @@
 package ie.ucc.bis.is4447.claim_app.view;
+// Modified code to download file from mysql database: Modified for my project
 // https://stackoverflow.com/questions/55816746/filedownloader-at-the-android-it-is-showing-no-errors-but-the-download-does-not
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
