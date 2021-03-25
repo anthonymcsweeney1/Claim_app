@@ -33,6 +33,7 @@ import ie.ucc.bis.is4447.claim_app.helper.FileDownloader;
 public class InvoicePage extends AppCompatActivity {
 
     String  ClaimID, InvoiceNum, Status, customer_reason, claim_type, offercode, settlement, amount, invoice_date, creation_date, CusID, Cus_Name, BillTo, BillToAcc, ShipTo, Approver, ApproverEmail, OperatingUnit, Currency, ClaimNum, ShipToAcc, Creator, Overage,  notes, Processor, approval_level, lastupdated_by, lastupdate, request_id ;
+    String final_approve;
 
     private BottomNavigationView bottomnav;
     private static final String TAG = "MyActivity";
@@ -55,6 +56,8 @@ public class InvoicePage extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_invoice_page);
+
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         Log.v(TAG, "onCreate() Method invoked ");
 
@@ -95,6 +98,7 @@ public class InvoicePage extends AppCompatActivity {
                         myIntent.putExtra("request_id", request_id);
                         myIntent.putExtra("approval_level", approval_level);
                         myIntent.putExtra("notes", notes);
+                        myIntent.putExtra("final_approve", final_approve);
                         startActivity(myIntent);
 
                         return true;
@@ -122,6 +126,7 @@ public class InvoicePage extends AppCompatActivity {
                         CommentIntent.putExtra("request_id", request_id);
                         CommentIntent.putExtra("approval_level", approval_level);
                         CommentIntent.putExtra("notes", notes);
+                        CommentIntent.putExtra("final_approve", final_approve);
                         startActivity(CommentIntent);
                         return true;
                 }
@@ -152,6 +157,7 @@ public class InvoicePage extends AppCompatActivity {
         amount = getIntent().getStringExtra("amount");
         notes = getIntent().getStringExtra("notes");
         approval_level = getIntent().getStringExtra("approval_level");
+        final_approve = getIntent().getStringExtra("final_approve");
 
 
     }

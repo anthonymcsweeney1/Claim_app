@@ -81,16 +81,14 @@ public class Connection extends AppCompatActivity {
 
     // Method to check network connectivity in Main Activity
     private void checkConnectivity() {
-        // here we are getting the connectivity service from connectivity manager
+        // getting the connectivity service from connectivity manager
         final ConnectivityManager connectivityManager = (ConnectivityManager) getSystemService(
                 Context.CONNECTIVITY_SERVICE);
 
         // Getting network Info
-        // give Network Access Permission in Manifest
         final NetworkInfo activeNetworkInfo = connectivityManager.getActiveNetworkInfo();
 
-        // isConnected is a boolean variable
-        // here we check if network is connected or is getting connected
+        // check if network is connected or is getting connected
         isConnected = activeNetworkInfo != null && activeNetworkInfo.isConnectedOrConnecting();
 
         if (!isConnected) {

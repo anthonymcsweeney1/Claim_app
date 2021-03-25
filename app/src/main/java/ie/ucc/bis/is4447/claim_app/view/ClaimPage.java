@@ -61,6 +61,7 @@ public class ClaimPage extends AppCompatActivity {
         btnNextApprove = findViewById(R.id.btnNextApprove);
 
 
+
         // Bottom Navigation
         bottomnav = findViewById(R.id.claimnav);
         bottomnav.setSelectedItemId(R.id.item_detail);
@@ -207,7 +208,7 @@ System.out.println(levelcheck);
             final_approve = "True";
         }
 
-
+        //Approve button to post variables to the php page
         btnApprove.setOnClickListener(new View.OnClickListener() {
             String stClaimID = tvClaimID.getText().toString();
             String stClaimNum = tvClaimNum.getText().toString();
@@ -251,7 +252,7 @@ System.out.println(levelcheck);
             }
         });
 
-
+        //Reject button to post variables to the php page
         btnReject.setOnClickListener(new View.OnClickListener() {
 
             String ClaimID = tvClaimID.getText().toString();
@@ -293,6 +294,7 @@ System.out.println(levelcheck);
             }
         });
 
+        //Approve next line button to post variables to the php page
         btnNextApprove.setOnClickListener(new View.OnClickListener() {
 
             String ClaimID = tvClaimID.getText().toString();
@@ -362,6 +364,7 @@ System.out.println(levelcheck);
             request_id = getIntent().getStringExtra("request_id");
             notes = getIntent().getStringExtra("notes");
         approval_level = getIntent().getStringExtra("approval_level");
+        final_approve = getIntent().getStringExtra("final_approve");
 
 
             //setting data

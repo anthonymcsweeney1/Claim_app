@@ -1,6 +1,6 @@
 package ie.ucc.bis.is4447.claim_app.helper;
 
-// Run connection in Background thread
+// Connecting to The Internet using Background Thread
 //https://www.youtube.com/watch?v=ARnLydTCRrE
 
 import android.app.AlertDialog;

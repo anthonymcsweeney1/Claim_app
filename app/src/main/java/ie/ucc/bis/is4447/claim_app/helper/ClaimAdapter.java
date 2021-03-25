@@ -1,5 +1,5 @@
 package ie.ucc.bis.is4447.claim_app.helper;
-// Code modified to display claim data from mysql database in recyclerview
+// Code use fro tutorial to display claim data from mysql database in recyclerview
 //https://www.simplifiedcoding.net/retrieve-data-mysql-database-android/
 
 import android.app.Activity;

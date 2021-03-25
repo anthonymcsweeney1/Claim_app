@@ -38,7 +38,7 @@
         <activity
             android:name=".view.InvoicePage"
             android:label="@string/InvoicePage"
-            android:parentActivityName=".view.PendingClaims"
+            android:parentActivityName=".view.ClaimList"
             android:theme="@style/AppTheme" />
         <activity android:name=".view.UserLoginActivity" />
         <activity
@@ -49,7 +49,7 @@
         <activity
             android:name=".view.ClaimPage"
             android:label="Claim Page"
-            android:parentActivityName=".view.PendingClaims"
+            android:parentActivityName=".view.ClaimList"
             android:theme="@style/AppTheme" />
         <activity
             android:name=".view.PendingClaims"
@@ -57,15 +57,14 @@
             android:parentActivityName=".view.Dashboard"
             android:theme="@style/AppTheme" />
         <activity android:name=".view.Dashboard">
+        </activity>
+        <activity android:name=".view.OnBoarding" />
+        <activity android:name=".view.SplashScreen">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-        </activity>
-        <activity android:name=".view.OnBoarding" />
-        <activity android:name=".view.SplashScreen">
-
         </activity>
         <activity android:name=".view.ClaimList">
 

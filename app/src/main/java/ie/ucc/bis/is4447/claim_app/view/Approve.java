@@ -37,7 +37,7 @@ public class Approve extends AppCompatActivity {
 
 
     private ActionedAdapter adapter;
-    //a list to store all the products
+    //a list to store all the claims
     List<Claim> claimList;
 
     private TextView no_claims;

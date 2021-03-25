@@ -1,6 +1,6 @@
 package ie.ucc.bis.is4447.claim_app.helper;
 
-//Modified code from IS4448 lecture and tutorial
+//Modified code from IS4448 lecture and tutorial to change the language locale in the app
 
 import android.content.Context;
 import android.content.res.Configuration;

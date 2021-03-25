@@ -83,6 +83,7 @@ public class Comment extends AppCompatActivity {
                         CommentIntent.putExtra("request_id", request_id);
                         CommentIntent.putExtra("approval_level", approval_level);
                         CommentIntent.putExtra("notes", notes);
+                        CommentIntent.putExtra("final_approve", final_approve);
                         startActivity(CommentIntent);
                         return true;
                     case R.id.item_image:
@@ -109,6 +110,7 @@ public class Comment extends AppCompatActivity {
                         ImageIntent.putExtra("request_id", request_id);
                         ImageIntent.putExtra("approval_level", approval_level);
                         ImageIntent.putExtra("notes", notes);
+                        ImageIntent.putExtra("final_approve", final_approve);
                         startActivity(ImageIntent);
                         return true;
                 }

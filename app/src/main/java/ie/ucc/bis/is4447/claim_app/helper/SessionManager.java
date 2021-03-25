@@ -41,6 +41,7 @@ public class SessionManager {
 
     public void checkLogin(){
         if (!this.isLoggin()){
+            //if session is active open Dashboard page
             Intent i = new Intent(context, UserLoginActivity.class);
             context.startActivity(i);
             ((Dashboard)context).finish();

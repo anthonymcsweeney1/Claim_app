@@ -108,8 +108,7 @@ public class PendingAdapter extends RecyclerView.Adapter<PendingAdapter.MyViewHo
                     List<Claim> filteredList = new ArrayList<>();
                     for (Claim row : claimList) {
 
-                        // name match condition. this might differ depending on your requirement
-                        // here we are looking for name or phone number match
+                        // checking that input matches the claim or customer name
                         if (row.getClaimNum().toLowerCase().contains(charString.toLowerCase()) || row.getCus_Name().contains(charSequence)) {
                             filteredList.add(row);
                             System.out.println(row.getClaimNum());
